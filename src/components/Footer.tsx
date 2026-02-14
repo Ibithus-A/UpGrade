@@ -49,7 +49,6 @@ export function Footer() {
 
         <div className="mt-10 flex items-center justify-between border-t hairline pt-6 text-xs text-black/55">
           <span>© {new Date().getFullYear()} UpGrade. All rights reserved.</span>
-          <span>Built with Next.js</span>
         </div>
       </div>
     </footer>
