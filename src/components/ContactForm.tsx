@@ -21,6 +21,7 @@ export function ContactForm() {
       level: String(form.get("level") || ""),
       subject: String(form.get("subject") || ""),
       notes: String(form.get("notes") || ""),
+      website: String(form.get("website") || ""),
     };
 
     try {
@@ -40,7 +41,7 @@ export function ContactForm() {
 
       setStatus("sent");
       setMessage("Thanks — we’ll get back to you shortly.");
-      (e.target as HTMLFormElement).reset();
+      e.currentTarget.reset();
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
@@ -74,12 +75,27 @@ export function ContactForm() {
 
           <form onSubmit={onSubmit} className="card p-6">
             <div className="grid gap-4">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="grid gap-1">
                   <label className="label" htmlFor="name">
                     Name
                   </label>
-                  <input id="name" name="name" required className="field" placeholder="Your name" />
+                  <input
+                    id="name"
+                    name="name"
+                    autoComplete="name"
+                    required
+                    className="field"
+                    placeholder="Your name"
+                  />
                 </div>
 
                 <div className="grid gap-1">
@@ -90,6 +106,7 @@ export function ContactForm() {
                     id="email"
                     name="email"
                     type="email"
+                    autoComplete="email"
                     required
                     className="field"
                     placeholder="you@email.com"
@@ -102,7 +119,14 @@ export function ContactForm() {
                   <label className="label" htmlFor="phone">
                     Phone (optional)
                   </label>
-                  <input id="phone" name="phone" className="field" placeholder="+44 ..." />
+                  <input
+                    id="phone"
+                    name="phone"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    className="field"
+                    placeholder="+44 ..."
+                  />
                 </div>
 
                 <div className="grid gap-1">
@@ -127,6 +151,7 @@ export function ContactForm() {
                 <input
                   id="subject"
                   name="subject"
+                  autoComplete="off"
                   required
                   className="field"
                   placeholder="e.g. A-Level Maths, GCSE Physics..."
@@ -146,12 +171,20 @@ export function ContactForm() {
                 />
               </div>
 
-              <button disabled={status === "sending"} className="btn btn-primary btn-md w-full disabled:opacity-60">
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="btn btn-primary btn-md w-full disabled:opacity-60"
+              >
                 {status === "sending" ? "Sending..." : "Send enquiry"}
               </button>
 
               {message ? (
-                <p className={["text-sm", status === "error" ? "text-red-600" : "text-black/70"].join(" ")}>
+                <p
+                  role={status === "error" ? "alert" : "status"}
+                  aria-live="polite"
+                  className={["text-sm", status === "error" ? "text-red-600" : "text-black/70"].join(" ")}
+                >
                   {message}
                 </p>
               ) : null}

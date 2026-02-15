@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Logo({ compact = false }: { compact?: boolean }) {
   // “G” + integrated arrow mark (minimal monochrome)
   return (
-    <Link href="/" className="inline-flex items-center gap-2">
+    <Link href="/" aria-label="UpGrade home" className="inline-flex items-center gap-2">
       <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white hairline border soft-shadow">
         <svg
           width="22"

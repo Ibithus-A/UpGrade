@@ -32,7 +32,7 @@ export function Navbar() {
         <div className="container flex h-14 items-center justify-between">
           <Logo />
 
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
             {navItems.map((i) => (
               <Link
                 key={i.href}

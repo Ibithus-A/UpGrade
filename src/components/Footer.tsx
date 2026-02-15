@@ -14,7 +14,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 text-sm md:grid-cols-3">
+          <nav className="grid grid-cols-2 gap-8 text-sm md:grid-cols-3" aria-label="Footer">
             <div className="space-y-2">
               <p className="font-semibold">Explore</p>
               <div className="flex flex-col gap-2 text-black/60">
@@ -44,7 +44,7 @@ export function Footer() {
               <p className="font-semibold">Legal</p>
               <p className="text-black/60">Terms are listed in the Pricing section.</p>
             </div>
-          </div>
+          </nav>
         </div>
 
         <div className="mt-10 flex items-center justify-between border-t hairline pt-6 text-xs text-black/55">

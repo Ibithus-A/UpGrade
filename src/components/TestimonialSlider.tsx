@@ -29,12 +29,13 @@ export function TestimonialSlider({
   const [index, setIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const len = items.length;
+  const hasMultiple = len > 1;
 
   const safeItems = useMemo(() => (len ? items : []), [items, len]);
   const timer = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!len) return;
+    if (!hasMultiple) return;
 
     if (timer.current) window.clearInterval(timer.current);
     if (!isHovering) {
@@ -45,17 +46,7 @@ export function TestimonialSlider({
     return () => {
       if (timer.current) window.clearInterval(timer.current);
     };
-  }, [len, isHovering]);
-
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [len]);
+  }, [hasMultiple, len, isHovering]);
 
   function prev() {
     setIndex((i) => (i - 1 + len) % len);
@@ -73,6 +64,14 @@ export function TestimonialSlider({
       className={["card", compact ? "p-6" : "p-6 md:p-8"].join(" ")}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+      tabIndex={0}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Student and parent testimonials"
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft") prev();
+        if (e.key === "ArrowRight") next();
+      }}
     >
       <div className="flex items-start justify-between gap-4">
         <div className="max-w-2xl">
@@ -84,17 +83,29 @@ export function TestimonialSlider({
         </div>
 
         <div className="hidden gap-2 sm:flex">
-          <button onClick={prev} className="btn btn-ghost btn-sm" aria-label="Previous testimonial">
+          <button
+            type="button"
+            onClick={prev}
+            className="btn btn-ghost btn-sm"
+            aria-label="Previous testimonial"
+            disabled={!hasMultiple}
+          >
             ←
           </button>
-          <button onClick={next} className="btn btn-ghost btn-sm" aria-label="Next testimonial">
+          <button
+            type="button"
+            onClick={next}
+            className="btn btn-ghost btn-sm"
+            aria-label="Next testimonial"
+            disabled={!hasMultiple}
+          >
             →
           </button>
         </div>
       </div>
 
       <div className="mt-6">
-        <div key={index} className="animate-fadeUp min-h-[160px]">
+        <div key={index} className="animate-fadeUp min-h-[160px]" aria-live="polite">
           <p className="text-[17px] leading-relaxed md:text-lg">
             “{current.quote}”
           </p>
@@ -112,6 +123,7 @@ export function TestimonialSlider({
           <div className="flex gap-1.5">
             {safeItems.map((_, i) => (
               <button
+                type="button"
                 key={i}
                 onClick={() => setIndex(i)}
                 className={[
@@ -122,15 +134,28 @@ export function TestimonialSlider({
                     : "bg-black/20 opacity-70 hover:opacity-100",
                 ].join(" ")}
                 aria-label={`Go to testimonial ${i + 1}`}
+                aria-current={i === index}
               />
             ))}
           </div>
 
           <div className="flex gap-2 sm:hidden">
-            <button onClick={prev} className="btn btn-ghost btn-sm">
+            <button
+              type="button"
+              onClick={prev}
+              className="btn btn-ghost btn-sm"
+              aria-label="Previous testimonial"
+              disabled={!hasMultiple}
+            >
               ←
             </button>
-            <button onClick={next} className="btn btn-ghost btn-sm">
+            <button
+              type="button"
+              onClick={next}
+              className="btn btn-ghost btn-sm"
+              aria-label="Next testimonial"
+              disabled={!hasMultiple}
+            >
               →
             </button>
           </div>

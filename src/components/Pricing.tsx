@@ -7,6 +7,7 @@ import { plans, type Plan } from "@/lib/data";
 function PlanCard({ p }: { p: Plan }) {
   const [open, setOpen] = useState(false);
   const hasTerms = Boolean(p.termsTitle && p.terms?.length);
+  const termsId = `plan-terms-${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
     <div
@@ -65,6 +66,7 @@ function PlanCard({ p }: { p: Plan }) {
             hasTerms ? "" : "pointer-events-none opacity-0", // invisible placeholder keeps spacing
           ].join(" ")}
           aria-expanded={hasTerms ? open : undefined}
+          aria-controls={hasTerms ? termsId : undefined}
         >
           {open ? "Hide terms & conditions" : "View terms & conditions"}
         </button>
@@ -73,10 +75,12 @@ function PlanCard({ p }: { p: Plan }) {
       {/* Expandable terms */}
       {hasTerms ? (
         <div
+          id={termsId}
           className={[
             "grid transition-all duration-300 ease-out",
             open ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0 mt-0",
           ].join(" ")}
+          aria-hidden={!open}
         >
           <div className="overflow-hidden rounded-2xl bg-black/[0.03] p-4">
             <p className="text-sm font-semibold">{p.termsTitle}</p>

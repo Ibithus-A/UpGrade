@@ -20,9 +20,12 @@ export function FAQ() {
             return (
               <div key={item.q} className="card card-hover p-5">
                 <button
+                  type="button"
                   className="flex w-full items-center justify-between gap-4 text-left"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${i}`}
+                  id={`faq-question-${i}`}
                 >
                   <span className="text-sm font-semibold">{item.q}</span>
 
@@ -39,10 +42,14 @@ export function FAQ() {
                 </button>
 
                 <div
+                  id={`faq-answer-${i}`}
                   className={[
                     "grid transition-all duration-300 ease-out",
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
                   ].join(" ")}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                  aria-hidden={!isOpen}
                 >
                   <div className="overflow-hidden">
                     <p className="mt-3 text-sm leading-relaxed text-black/65">
