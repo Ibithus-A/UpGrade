@@ -10,6 +10,22 @@ type Task = {
   tags: string[];
 };
 
+const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const minuteOptions = [
+  "00",
+  "05",
+  "10",
+  "15",
+  "20",
+  "25",
+  "30",
+  "35",
+  "40",
+  "45",
+  "50",
+  "55",
+];
+
 function dateKey(date: Date) {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -52,8 +68,10 @@ export function TaskCalendar() {
   const daysInMonth = monthEnd.getDate();
   const firstDayIndex = monthStart.getDay();
   const selectedKey = dateKey(selectedDate);
+  const todayKey = dateKey(today);
   const selectedTasks = tasksByDate[selectedKey] ?? [];
   const formattedTime = `${hour}:${minute} ${period}`;
+  const submitDisabled = !title.trim();
 
   function goToPreviousMonth() {
     setViewMonth(
@@ -65,6 +83,12 @@ export function TaskCalendar() {
     setViewMonth(
       (prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1),
     );
+  }
+
+  function goToToday() {
+    const nextToday = new Date();
+    setSelectedDate(nextToday);
+    setViewMonth(new Date(nextToday.getFullYear(), nextToday.getMonth(), 1));
   }
 
   function addTask(event: FormEvent<HTMLFormElement>) {
@@ -119,28 +143,39 @@ export function TaskCalendar() {
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="card p-5 md:p-6">
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={goToPreviousMonth}
+                  className="btn btn-ghost btn-sm"
+                  aria-label="Previous month"
+                >
+                  ← Prev
+                </button>
+                <button
+                  type="button"
+                  onClick={goToNextMonth}
+                  className="btn btn-ghost btn-sm"
+                  aria-label="Next month"
+                >
+                  Next →
+                </button>
+              </div>
+              <p className="text-sm font-semibold tracking-[-0.01em]">
+                {monthLabel(viewMonth)}
+              </p>
               <button
                 type="button"
-                onClick={goToPreviousMonth}
-                className="btn btn-ghost btn-sm"
-                aria-label="Previous month"
+                onClick={goToToday}
+                className="btn btn-secondary btn-sm"
               >
-                Previous
-              </button>
-              <p className="text-sm font-semibold">{monthLabel(viewMonth)}</p>
-              <button
-                type="button"
-                onClick={goToNextMonth}
-                className="btn btn-ghost btn-sm"
-                aria-label="Next month"
-              >
-                Next
+                Today
               </button>
             </div>
 
             <div className="mt-5 grid grid-cols-7 gap-2 text-center text-xs text-black/55">
-              {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+              {weekDays.map((day) => (
                 <p key={day}>{day}</p>
               ))}
             </div>
@@ -159,7 +194,7 @@ export function TaskCalendar() {
                 );
                 const key = dateKey(dayDate);
                 const isSelected = key === selectedKey;
-                const isToday = key === dateKey(today);
+                const isToday = key === todayKey;
                 const count = tasksByDate[key]?.length ?? 0;
 
                 return (
@@ -168,10 +203,10 @@ export function TaskCalendar() {
                     type="button"
                     onClick={() => setSelectedDate(dayDate)}
                     className={[
-                      "h-12 rounded-2xl border text-sm font-medium",
+                      "h-12 rounded-2xl border text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 transition-all duration-200",
                       isSelected
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-black/75 border-black/10 hover:bg-black/[0.03]",
+                        ? "bg-black text-white border-black shadow-[0_8px_16px_rgba(0,0,0,0.18)]"
+                        : "bg-white text-black/75 border-black/10 hover:bg-black/[0.03] hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.08)]",
                     ].join(" ")}
                     aria-label={`${dayLabel(dayDate)} (${count} tasks)`}
                   >
@@ -198,9 +233,14 @@ export function TaskCalendar() {
           </div>
 
           <div className="card p-5 md:p-6">
-            <p className="text-sm font-semibold">{dayLabel(selectedDate)}</p>
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold">{dayLabel(selectedDate)}</p>
+              <span className="rounded-full bg-black/5 px-3 py-1 text-xs font-medium text-black/65">
+                {formattedTime}
+              </span>
+            </div>
 
-            <form onSubmit={addTask} className="mt-4 grid gap-3">
+            <form onSubmit={addTask} className="mt-4 grid gap-3 rounded-2xl border border-black/10 bg-black/[0.015] p-4">
               <div>
                 <label htmlFor="task-title" className="label">
                   Task
@@ -219,9 +259,10 @@ export function TaskCalendar() {
                 <label htmlFor="task-time" className="label">
                   Time
                 </label>
-                <div id="task-time" className="mt-1 grid grid-cols-3 gap-2">
+                <div className="mt-1 grid grid-cols-3 gap-2">
                   <select
-                    className="select"
+                    id="task-time"
+                    className="select hover:bg-black/[0.02]"
                     value={hour}
                     onChange={(e) => setHour(e.target.value)}
                     aria-label="Hour"
@@ -237,22 +278,20 @@ export function TaskCalendar() {
                   </select>
 
                   <select
-                    className="select"
+                    className="select hover:bg-black/[0.02]"
                     value={minute}
                     onChange={(e) => setMinute(e.target.value)}
                     aria-label="Minute"
                   >
-                    {["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"].map(
-                      (value) => (
-                        <option key={value} value={value}>
-                          {value}
-                        </option>
-                      ),
-                    )}
+                    {minuteOptions.map((value) => (
+                      <option key={value} value={value}>
+                        {value}
+                      </option>
+                    ))}
                   </select>
 
                   <select
-                    className="select"
+                    className="select hover:bg-black/[0.02]"
                     value={period}
                     onChange={(e) => setPeriod(e.target.value as "AM" | "PM")}
                     aria-label="AM or PM"
@@ -290,7 +329,14 @@ export function TaskCalendar() {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary btn-md w-full">
+              <button
+                type="submit"
+                disabled={submitDisabled}
+                className={[
+                  "btn btn-primary btn-md w-full",
+                  submitDisabled ? "pointer-events-none opacity-60" : "",
+                ].join(" ")}
+              >
                 Add task
               </button>
             </form>
@@ -299,12 +345,15 @@ export function TaskCalendar() {
               <p className="text-sm font-semibold">Tasks ({selectedTasks.length})</p>
               <div className="mt-3 grid gap-3">
                 {selectedTasks.length === 0 ? (
-                  <p className="text-sm text-black/55">
+                  <div className="rounded-2xl border border-dashed border-black/15 bg-black/[0.02] px-4 py-6 text-center text-sm text-black/55">
                     No tasks yet for this date.
-                  </p>
+                  </div>
                 ) : (
                   selectedTasks.map((task) => (
-                    <article key={task.id} className="rounded-2xl border border-black/10 bg-black/[0.02] p-4">
+                    <article
+                      key={task.id}
+                      className="animate-fadeUp rounded-2xl border border-black/10 bg-black/[0.02] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(0,0,0,0.06)]"
+                    >
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <p className="text-sm font-semibold">{task.title}</p>
@@ -315,7 +364,7 @@ export function TaskCalendar() {
                         <button
                           type="button"
                           onClick={() => removeTask(task.id)}
-                          className="btn btn-ghost btn-sm"
+                          className="btn btn-ghost btn-sm shrink-0"
                         >
                           Remove
                         </button>
