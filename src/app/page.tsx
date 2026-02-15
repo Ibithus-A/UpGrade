@@ -3,7 +3,9 @@ import { Pricing } from "@/components/Pricing";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { FAQ } from "@/components/FAQ";
 import { ContactForm } from "@/components/ContactForm";
-import { testimonials } from "@/lib/data";
+import { ClientEffects } from "@/components/ClientEffects";
+import { faqs, testimonials } from "@/lib/data";
+import { siteConfig } from "@/lib/site";
 
 const steps = [
   { title: "Teach", desc: "Clear explanations & examples" },
@@ -40,8 +42,39 @@ function FlowStep({
 }
 
 export default function HomePage() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    areaServed: "United Kingdom",
+    knowsAbout: ["GCSE STEM", "A-Level STEM", "A-Level Mathematics"],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
-    <main>
+    <main id="main-content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero */}
       <section className="section">
         <div className="container">
@@ -116,6 +149,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section id="testimonials" className="section scroll-mt-24">
         <div className="container">
+          <h2 className="sr-only">Testimonials</h2>
           <TestimonialSlider items={testimonials} />
           <div className="mt-6">
             <Link href="/testimonials" className="btn btn-ghost btn-md">
@@ -127,6 +161,7 @@ export default function HomePage() {
 
       <FAQ />
       <ContactForm />
+      <ClientEffects />
     </main>
   );
 }

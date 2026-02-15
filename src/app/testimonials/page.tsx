@@ -1,5 +1,23 @@
+import type { Metadata } from "next";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { testimonials } from "@/lib/data";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Testimonials",
+  description:
+    "Read testimonials from GCSE and A-Level learners and parents who studied with UpGrade.",
+  alternates: {
+    canonical: "/testimonials",
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/testimonials`,
+    title: "Testimonials | UpGrade",
+    description:
+      "Read testimonials from GCSE and A-Level learners and parents who studied with UpGrade.",
+  },
+};
 
 function initialsFromName(name: string) {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -19,7 +37,7 @@ function Avatar({ name }: { name: string }) {
 
 export default function TestimonialsPage() {
   return (
-    <main className="section">
+    <main id="main-content" className="section">
       <div className="container">
         <h1 className="h1 text-4xl md:text-5xl">Testimonials</h1>
         <p className="mt-2 lead max-w-2xl">

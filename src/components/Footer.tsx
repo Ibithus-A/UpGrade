@@ -18,13 +18,13 @@ export function Footer() {
             <div className="space-y-2">
               <p className="font-semibold">Explore</p>
               <div className="flex flex-col gap-2 text-black/60">
-                <Link href="/#pricing" className="hover:text-black">
+                <Link href="/#pricing" className="ui-link w-fit px-0">
                   Pricing
                 </Link>
-                <Link href="/#faq" className="hover:text-black">
+                <Link href="/#faq" className="ui-link w-fit px-0">
                   FAQ
                 </Link>
-                <Link href="/testimonials" className="hover:text-black">
+                <Link href="/testimonials" className="ui-link w-fit px-0">
                   Testimonials
                 </Link>
               </div>
@@ -33,7 +33,7 @@ export function Footer() {
             <div className="space-y-2">
               <p className="font-semibold">Contact</p>
               <div className="flex flex-col gap-2 text-black/60">
-                <Link href="/#contact" className="hover:text-black">
+                <Link href="/#contact" className="ui-link w-fit px-0">
                   Enquiry form
                 </Link>
                 <span>Payments via bank transfer</span>
