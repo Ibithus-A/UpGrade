@@ -41,7 +41,9 @@ export function TaskCalendar() {
   const [selectedDate, setSelectedDate] = useState(today);
   const [tasksByDate, setTasksByDate] = useState<Record<string, Task[]>>({});
   const [title, setTitle] = useState("");
-  const [time, setTime] = useState("");
+  const [hour, setHour] = useState("09");
+  const [minute, setMinute] = useState("00");
+  const [period, setPeriod] = useState<"AM" | "PM">("AM");
   const [description, setDescription] = useState("");
   const [tagInput, setTagInput] = useState("");
 
@@ -51,6 +53,7 @@ export function TaskCalendar() {
   const firstDayIndex = monthStart.getDay();
   const selectedKey = dateKey(selectedDate);
   const selectedTasks = tasksByDate[selectedKey] ?? [];
+  const formattedTime = `${hour}:${minute} ${period}`;
 
   function goToPreviousMonth() {
     setViewMonth(
@@ -75,7 +78,7 @@ export function TaskCalendar() {
     const nextTask: Task = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       title: title.trim(),
-      time,
+      time: formattedTime,
       description: description.trim(),
       tags,
     };
@@ -85,7 +88,9 @@ export function TaskCalendar() {
       [selectedKey]: [...(prev[selectedKey] ?? []), nextTask],
     }));
     setTitle("");
-    setTime("");
+    setHour("09");
+    setMinute("00");
+    setPeriod("AM");
     setDescription("");
     setTagInput("");
   }
@@ -214,13 +219,48 @@ export function TaskCalendar() {
                 <label htmlFor="task-time" className="label">
                   Time
                 </label>
-                <input
-                  id="task-time"
-                  type="time"
-                  className="field mt-1"
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                />
+                <div id="task-time" className="mt-1 grid grid-cols-3 gap-2">
+                  <select
+                    className="select"
+                    value={hour}
+                    onChange={(e) => setHour(e.target.value)}
+                    aria-label="Hour"
+                  >
+                    {Array.from({ length: 12 }).map((_, idx) => {
+                      const value = String(idx + 1).padStart(2, "0");
+                      return (
+                        <option key={value} value={value}>
+                          {value}
+                        </option>
+                      );
+                    })}
+                  </select>
+
+                  <select
+                    className="select"
+                    value={minute}
+                    onChange={(e) => setMinute(e.target.value)}
+                    aria-label="Minute"
+                  >
+                    {["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"].map(
+                      (value) => (
+                        <option key={value} value={value}>
+                          {value}
+                        </option>
+                      ),
+                    )}
+                  </select>
+
+                  <select
+                    className="select"
+                    value={period}
+                    onChange={(e) => setPeriod(e.target.value as "AM" | "PM")}
+                    aria-label="AM or PM"
+                  >
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                  </select>
+                </div>
               </div>
 
               <div>
