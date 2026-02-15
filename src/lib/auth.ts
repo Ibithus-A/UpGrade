@@ -9,9 +9,27 @@ type SessionPayload = {
   role: UserRole;
   email: string;
   exp: number;
+  v: number;
 };
 
-export const SESSION_COOKIE = "upgrade_session";
+const SESSION_VERSION = 2;
+export const SESSION_COOKIE = "upgrade_session_v2";
+
+// Hardcoded login details (for quick reference):
+// Student: Student@UpGrade.com / Student123
+// Tutor: Ibrahim@UpGrade.com / Ibrahim123
+
+const HARDCODED_CREDENTIALS = {
+  student: {
+    email: "Student@UpGrade.com",
+    password: "Student123",
+  },
+  tutor: {
+    email: "Ibrahim@UpGrade.com",
+    password: "Ibrahim123",
+  },
+} as const;
+
 const ROLE_CONFIG = {
   student: {
     email: "AUTH_STUDENT_EMAIL",
@@ -53,19 +71,22 @@ function secureEqual(left: string, right: string) {
   );
 }
 
+export function isValidPasswordFormat(password: string) {
+  return (
+    password.length >= 8 &&
+    /[A-Z]/.test(password) &&
+    /[a-z]/.test(password) &&
+    /\d/.test(password)
+  );
+}
+
 export function verifyCredentials(role: UserRole, email: string, password: string) {
   const envKeys = ROLE_CONFIG[role];
-  const expectedEmail = process.env[envKeys.email]?.trim().toLowerCase();
-  const expectedPassword = process.env[envKeys.password];
-
-  if (!expectedEmail || !expectedPassword) {
-    if (process.env.NODE_ENV === "production") {
-      throw new Error(
-        `Missing login credentials for role "${role}". Set ${envKeys.email} and ${envKeys.password}.`,
-      );
-    }
-    return false;
-  }
+  const expectedEmail = (
+    process.env[envKeys.email]?.trim() || HARDCODED_CREDENTIALS[role].email
+  ).toLowerCase();
+  const expectedPassword =
+    process.env[envKeys.password] || HARDCODED_CREDENTIALS[role].password;
 
   return (
     secureEqual(email.trim().toLowerCase(), expectedEmail) &&
@@ -95,8 +116,9 @@ function parseToken(token: string) {
 
   try {
     const parsed = JSON.parse(decodeBase64Url(encoded)) as SessionPayload;
-    if (!parsed.role || !parsed.email || !parsed.exp) return null;
+    if (!parsed.role || !parsed.email || !parsed.exp || !parsed.v) return null;
     if (parsed.exp <= Date.now()) return null;
+    if (parsed.v !== SESSION_VERSION) return null;
     if (parsed.role !== "student" && parsed.role !== "tutor") return null;
     return parsed;
   } catch {
@@ -109,6 +131,7 @@ export async function createSession(role: UserRole, email: string) {
     role,
     email,
     exp: Date.now() + 1000 * 60 * 60 * 8,
+    v: SESSION_VERSION,
   };
   const token = makeToken(payload);
   const cookieStore = await cookies();

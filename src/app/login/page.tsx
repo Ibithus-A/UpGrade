@@ -59,7 +59,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
               <p className="mt-4 rounded-2xl border border-black/15 bg-black/[0.03] px-4 py-3 text-sm text-black/70">
                 {error === "invalid_email" && "Enter a valid email address."}
                 {error === "invalid_password" &&
-                  "Password must be at least 8 characters."}
+                  "Password must be at least 8 characters and include uppercase, lowercase, and a number."}
                 {error === "invalid_role" && "Choose a valid role."}
                 {error === "invalid_credentials" &&
                   "Email or password is incorrect for this role."}

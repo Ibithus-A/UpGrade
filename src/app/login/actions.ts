@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import {
   clearSession,
   createSession,
+  isValidPasswordFormat,
   type UserRole,
   verifyCredentials,
 } from "@/lib/auth";
@@ -24,7 +25,7 @@ export async function signInAction(formData: FormData) {
   if (!email || !email.includes("@")) {
     redirect("/login?error=invalid_email");
   }
-  if (password.length < 8) {
+  if (!isValidPasswordFormat(password)) {
     redirect("/login?error=invalid_password");
   }
   if (role !== "student" && role !== "tutor") {
