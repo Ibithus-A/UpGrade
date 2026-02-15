@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Testimonial } from "@/lib/data";
 
 function initialsFromName(name: string) {
@@ -30,8 +30,6 @@ export function TestimonialSlider({
   const [isHovering, setIsHovering] = useState(false);
   const len = items.length;
   const hasMultiple = len > 1;
-
-  const safeItems = useMemo(() => (len ? items : []), [items, len]);
   const timer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -57,7 +55,8 @@ export function TestimonialSlider({
 
   if (!len) return null;
 
-  const current = safeItems[index];
+  const safeIndex = index % len;
+  const current = items[safeIndex];
 
   return (
     <div
@@ -121,7 +120,7 @@ export function TestimonialSlider({
 
         <div className="mt-6 flex items-center justify-between gap-4">
           <div className="flex gap-1.5">
-            {safeItems.map((_, i) => (
+            {items.map((_, i) => (
               <button
                 type="button"
                 key={i}
@@ -129,12 +128,12 @@ export function TestimonialSlider({
                 className={[
                   "h-2 w-2 rounded-full",
                   "transition-opacity duration-200",
-                  i === index
+                  i === safeIndex
                     ? "bg-black opacity-100"
                     : "bg-black/20 opacity-70 hover:opacity-100",
                 ].join(" ")}
                 aria-label={`Go to testimonial ${i + 1}`}
-                aria-current={i === index}
+                aria-current={i === safeIndex}
               />
             ))}
           </div>

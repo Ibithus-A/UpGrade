@@ -28,6 +28,9 @@ const minuteOptions = [
   "50",
   "55",
 ];
+const hourOptions = Array.from({ length: 12 }, (_, idx) =>
+  String(idx + 1).padStart(2, "0"),
+);
 const calendarStorageKey = "upgrade_lessons_v1";
 
 function dateKey(date: Date) {
@@ -51,10 +54,6 @@ function dayLabel(date: Date) {
     day: "numeric",
     year: "numeric",
   }).format(date);
-}
-
-function hourOptions() {
-  return Array.from({ length: 12 }).map((_, idx) => String(idx + 1).padStart(2, "0"));
 }
 
 export function TaskCalendar({ role }: TaskCalendarProps) {
@@ -341,7 +340,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                       onChange={(e) => setHour(e.target.value)}
                       aria-label="Hour"
                     >
-                      {hourOptions().map((value) => (
+                      {hourOptions.map((value) => (
                         <option key={value} value={value}>
                           {value}
                         </option>
@@ -454,7 +453,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                                 onChange={(e) => setEditingHour(e.target.value)}
                                 aria-label="Edit hour"
                               >
-                                {hourOptions().map((value) => (
+                                {hourOptions.map((value) => (
                                   <option key={value} value={value}>
                                     {value}
                                   </option>

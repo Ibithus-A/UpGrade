@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { plans, type Plan } from "@/lib/data";
 
 function PlanCard({ p }: { p: Plan }) {
@@ -97,8 +97,6 @@ function PlanCard({ p }: { p: Plan }) {
 }
 
 export function Pricing() {
-  const items = useMemo(() => plans, []);
-
   return (
     <section id="pricing" className="section scroll-mt-24">
       <div className="container">
@@ -109,7 +107,7 @@ export function Pricing() {
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {items.map((p) => (
+          {plans.map((p) => (
             <PlanCard key={p.name} p={p} />
           ))}
         </div>
