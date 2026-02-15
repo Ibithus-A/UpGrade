@@ -9,6 +9,7 @@ const navItems = [
   { label: "Testimonials", href: "/#testimonials" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
+  { label: "Portal", href: "/login" },
 ];
 
 export function Navbar() {
@@ -42,14 +43,14 @@ export function Navbar() {
                 {i.label}
               </Link>
             ))}
-            <Link href="/#contact" className="btn btn-primary btn-sm">
-              Book free session
+            <Link href="/login" className="btn btn-primary btn-sm">
+              Sign in
             </Link>
           </nav>
 
           <div className="md:hidden">
-            <Link href="/#contact" className="btn btn-primary btn-sm">
-              Free session
+            <Link href="/login" className="btn btn-primary btn-sm">
+              Sign in
             </Link>
           </div>
         </div>
