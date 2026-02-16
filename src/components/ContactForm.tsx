@@ -51,8 +51,8 @@ export function ContactForm() {
   return (
     <section id="contact" className="section scroll-mt-24">
       <div className="container">
-        <div className="grid gap-8 md:grid-cols-2 md:items-start">
-          <div>
+        <div className="flex flex-col gap-8 md:flex-row md:items-start">
+          <div className="min-w-0 flex-1">
             <h2 className="h2">Contact UpGrade</h2>
             <p className="mt-2 max-w-lg lead">
               Tell us your goals and we’ll recommend the best plan. We also
@@ -73,8 +73,8 @@ export function ContactForm() {
             </div>
           </div>
 
-          <form onSubmit={onSubmit} className="card p-6">
-            <div className="grid gap-4">
+          <form onSubmit={onSubmit} className="card min-w-0 flex-1 p-6">
+            <div className="flex flex-col gap-4">
               <input
                 type="text"
                 name="website"
@@ -83,8 +83,8 @@ export function ContactForm() {
                 className="hidden"
                 aria-hidden="true"
               />
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="grid gap-1">
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex min-w-0 flex-1 flex-col gap-1">
                   <label className="label" htmlFor="name">
                     Name
                   </label>
@@ -98,7 +98,7 @@ export function ContactForm() {
                   />
                 </div>
 
-                <div className="grid gap-1">
+                <div className="flex min-w-0 flex-1 flex-col gap-1">
                   <label className="label" htmlFor="email">
                     Email
                   </label>
@@ -114,8 +114,8 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="grid gap-1">
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="flex min-w-0 flex-1 flex-col gap-1">
                   <label className="label" htmlFor="phone">
                     Phone (optional)
                   </label>
@@ -129,7 +129,7 @@ export function ContactForm() {
                   />
                 </div>
 
-                <div className="grid gap-1">
+                <div className="flex min-w-0 flex-1 flex-col gap-1">
                   <label className="label" htmlFor="level">
                     Level
                   </label>
@@ -144,7 +144,7 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="grid gap-1">
+              <div className="flex flex-col gap-1">
                 <label className="label" htmlFor="subject">
                   Subject / Focus
                 </label>
@@ -158,7 +158,7 @@ export function ContactForm() {
                 />
               </div>
 
-              <div className="grid gap-1">
+              <div className="flex flex-col gap-1">
                 <label className="label" htmlFor="notes">
                   Goals / Notes
                 </label>

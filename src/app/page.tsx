@@ -3,7 +3,6 @@ import { Pricing } from "@/components/Pricing";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { FAQ } from "@/components/FAQ";
 import { ContactForm } from "@/components/ContactForm";
-import { ClientEffects } from "@/components/ClientEffects";
 import { faqs, testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
@@ -78,8 +77,8 @@ export default function HomePage() {
       {/* Hero */}
       <section className="section">
         <div className="container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
+            <div className="min-w-0 flex-1">
               <p className="kicker">Premium STEM tuition • GCSE & A-Level</p>
 
               <h1 className="mt-4 h1">
@@ -118,11 +117,11 @@ export default function HomePage() {
             </div>
 
             {/* Method */}
-            <div className="card p-6 md:p-8 overflow-hidden">
+            <div className="card min-w-0 flex-1 overflow-hidden p-6 md:p-8">
               <p className="text-sm font-semibold">The UpGrade method</p>
 
               {/* Vertical flowchart only */}
-              <div className="mt-5 grid gap-3">
+              <div className="mt-5 flex flex-col gap-3">
                 {steps.map((s, idx) => (
                   <FlowStep
                     key={s.title}
@@ -161,7 +160,6 @@ export default function HomePage() {
 
       <FAQ />
       <ContactForm />
-      <ClientEffects />
     </main>
   );
 }

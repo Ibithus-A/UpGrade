@@ -14,8 +14,8 @@ export function Footer() {
             </p>
           </div>
 
-          <nav className="grid grid-cols-2 gap-8 text-sm md:grid-cols-3" aria-label="Footer">
-            <div className="space-y-2">
+          <nav className="flex flex-wrap gap-8 text-sm" aria-label="Footer">
+            <div className="min-w-[140px] space-y-2">
               <p className="font-semibold">Explore</p>
               <div className="flex flex-col gap-2 text-black/60">
                 <Link href="/#pricing" className="ui-link w-fit px-0">
@@ -30,7 +30,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="min-w-[140px] space-y-2">
               <p className="font-semibold">Contact</p>
               <div className="flex flex-col gap-2 text-black/60">
                 <Link href="/#contact" className="ui-link w-fit px-0">
@@ -40,7 +40,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="min-w-[140px] space-y-2">
               <p className="font-semibold">Legal</p>
               <p className="text-black/60">Terms are listed in the Pricing section.</p>
             </div>

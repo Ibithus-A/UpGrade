@@ -66,11 +66,11 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
               </p>
             ) : null}
 
-            <form action={signInAction} className="mt-5 grid gap-4">
+            <form action={signInAction} className="mt-5 flex flex-col gap-4">
               <div>
                 <p className="label">Role</p>
-                <div className="mt-2 grid grid-cols-2 gap-2">
-                  <label className="cursor-pointer rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm hover:bg-black/[0.02]">
+                <div className="mt-2 flex gap-2">
+                  <label className="cursor-pointer rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm hover:bg-black/[0.02] flex-1">
                     <input
                       type="radio"
                       name="role"
@@ -80,7 +80,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
                     />
                     <span className="align-middle">Student</span>
                   </label>
-                  <label className="cursor-pointer rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm hover:bg-black/[0.02]">
+                  <label className="cursor-pointer rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm hover:bg-black/[0.02] flex-1">
                     <input
                       type="radio"
                       name="role"

@@ -1,11 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import { faqs } from "@/lib/data";
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
     <section id="faq" className="section scroll-mt-24">
       <div className="container">
@@ -14,50 +9,31 @@ export function FAQ() {
           Clear answers, simple expectations, and high standards.
         </p>
 
-        <div className="mt-8 grid gap-3">
+        <div className="mt-8 flex flex-col gap-3">
           {faqs.map((item, i) => {
-            const isOpen = openIndex === i;
             return (
-              <div key={item.q} className="card card-hover p-5">
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-between gap-4 text-left"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${i}`}
+              <details key={item.q} className="card card-hover group p-5" open={i === 0}>
+                <summary
+                  className="flex cursor-pointer list-none items-center justify-between gap-4 text-left marker:content-none"
                   id={`faq-question-${i}`}
                 >
                   <span className="text-sm font-semibold">{item.q}</span>
-
                   <span
-                    className={[
-                      "inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/5 text-black/80",
-                      "transition-transform duration-300",
-                      isOpen ? "rotate-45" : "rotate-0",
-                    ].join(" ")}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/5 text-black/80 transition-transform duration-300 group-open:rotate-45"
                     aria-hidden="true"
                   >
                     +
                   </span>
-                </button>
-
+                </summary>
                 <div
                   id={`faq-answer-${i}`}
-                  className={[
-                    "grid transition-all duration-300 ease-out",
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                  ].join(" ")}
+                  className="overflow-hidden transition-all duration-300 ease-out group-open:mt-3"
                   role="region"
                   aria-labelledby={`faq-question-${i}`}
-                  aria-hidden={!isOpen}
                 >
-                  <div className="overflow-hidden">
-                    <p className="mt-3 text-sm leading-relaxed text-black/65">
-                      {item.a}
-                    </p>
-                  </div>
+                  <p className="text-sm leading-relaxed text-black/65">{item.a}</p>
                 </div>
-              </div>
+              </details>
             );
           })}
         </div>

@@ -1,18 +1,14 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import { plans, type Plan } from "@/lib/data";
 
 function PlanCard({ p }: { p: Plan }) {
-  const [open, setOpen] = useState(false);
   const hasTerms = Boolean(p.termsTitle && p.terms?.length);
   const termsId = `plan-terms-${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
     <div
       className={[
-        "card p-6 flex flex-col",
+        "card h-full p-6 flex flex-col",
         p.highlighted ? "ring-1 ring-black/10" : "",
       ].join(" ")}
     >
@@ -52,37 +48,23 @@ function PlanCard({ p }: { p: Plan }) {
       <div className="mt-auto" />
 
       {/* Actions: fixed vertical plane across plans */}
-      <div className="mt-6 grid gap-3">
+      <div className="mt-6 flex min-h-[52px] flex-col gap-3">
         <Link href="/#contact" className="btn btn-primary btn-md w-full">
           Enquire now
         </Link>
-
-        {/* Always render this row to keep alignment consistent */}
-        <button
-          type="button"
-          onClick={() => hasTerms && setOpen((v) => !v)}
-          className={[
-            "btn btn-ghost btn-md w-full",
-            hasTerms ? "" : "pointer-events-none opacity-0", // invisible placeholder keeps spacing
-          ].join(" ")}
-          aria-expanded={hasTerms ? open : undefined}
-          aria-controls={hasTerms ? termsId : undefined}
-        >
-          {open ? "Hide terms & conditions" : "View terms & conditions"}
-        </button>
       </div>
 
       {/* Expandable terms */}
       {hasTerms ? (
-        <div
-          id={termsId}
-          className={[
-            "grid transition-all duration-300 ease-out",
-            open ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0 mt-0",
-          ].join(" ")}
-          aria-hidden={!open}
-        >
-          <div className="overflow-hidden rounded-2xl bg-black/[0.03] p-4">
+        <details className="group mt-3">
+          <summary
+            className="btn btn-ghost btn-md w-full cursor-pointer list-none marker:content-none"
+            aria-controls={termsId}
+          >
+            <span className="group-open:hidden">View terms & conditions</span>
+            <span className="hidden group-open:inline">Hide terms & conditions</span>
+          </summary>
+          <div id={termsId} className="mt-3 rounded-2xl bg-black/[0.03] p-4">
             <p className="text-sm font-semibold">{p.termsTitle}</p>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-black/70">
               {p.terms!.map((t) => (
@@ -90,7 +72,7 @@ function PlanCard({ p }: { p: Plan }) {
               ))}
             </ul>
           </div>
-        </div>
+        </details>
       ) : null}
     </div>
   );
@@ -106,9 +88,11 @@ export function Pricing() {
           accountability, and exam-focused outcomes.
         </p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-stretch">
           {plans.map((p) => (
-            <PlanCard key={p.name} p={p} />
+            <div key={p.name} className="flex min-w-0 flex-1">
+              <PlanCard p={p} />
+            </div>
           ))}
         </div>
 

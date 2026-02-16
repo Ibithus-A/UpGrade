@@ -48,12 +48,15 @@ export default function TestimonialsPage() {
           <TestimonialSlider items={testimonials} compact />
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 flex flex-col gap-4 md:flex-row md:flex-wrap md:items-stretch">
           {testimonials.map((t) => (
-            <div key={`${t.name}-${t.role}`} className="card card-hover p-6">
+            <div
+              key={`${t.name}-${t.role}`}
+              className="card card-hover flex min-w-0 flex-col p-6 md:w-[calc(50%-0.5rem)]"
+            >
               <p className="text-sm leading-relaxed">“{t.quote}”</p>
 
-              <div className="mt-4 flex items-center gap-3">
+              <div className="mt-auto flex items-center gap-3 pt-4">
                 <Avatar name={t.name} />
                 <div>
                   <p className="text-sm font-semibold">{t.name}</p>

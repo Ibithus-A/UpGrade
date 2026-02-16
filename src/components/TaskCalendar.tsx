@@ -32,6 +32,7 @@ const hourOptions = Array.from({ length: 12 }, (_, idx) =>
   String(idx + 1).padStart(2, "0"),
 );
 const calendarStorageKey = "upgrade_lessons_v1";
+const dayCellBasis = "calc((100% - 3rem) / 7)";
 
 function dateKey(date: Date) {
   const year = date.getFullYear();
@@ -208,8 +209,8 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
             : "View your upcoming lessons, including time and lesson notes."}
         </p>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="card p-5 md:p-6">
+        <div className="mt-8 flex flex-col gap-6 lg:flex-row">
+          <div className="card min-w-0 flex-1 p-5 md:p-6">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <button
@@ -241,15 +242,21 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
               </button>
             </div>
 
-            <div className="mt-5 grid grid-cols-7 gap-2 text-center text-xs text-black/55">
+            <div className="mt-5 flex flex-wrap gap-2 text-center text-xs text-black/55">
               {weekDays.map((day) => (
-                <p key={day}>{day}</p>
+                <p key={day} className="shrink-0" style={{ width: dayCellBasis }}>
+                  {day}
+                </p>
               ))}
             </div>
 
-            <div className="mt-2 grid grid-cols-7 gap-2">
+            <div className="mt-2 flex flex-wrap gap-2">
               {Array.from({ length: firstDayIndex }).map((_, idx) => (
-                <div key={`blank-${idx}`} className="h-12 rounded-2xl" />
+                <div
+                  key={`blank-${idx}`}
+                  className="h-12 shrink-0 rounded-2xl"
+                  style={{ width: dayCellBasis }}
+                />
               ))}
 
               {Array.from({ length: daysInMonth }).map((_, idx) => {
@@ -270,11 +277,12 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                     type="button"
                     onClick={() => setSelectedDate(dayDate)}
                     className={[
-                      "h-12 rounded-2xl border text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 transition-all duration-200",
+                      "h-12 shrink-0 rounded-2xl border text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 transition-all duration-200",
                       isSelected
                         ? "bg-black text-white border-black shadow-[0_8px_16px_rgba(0,0,0,0.18)]"
                         : "bg-white text-black/75 border-black/10 hover:bg-black/[0.03] hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.08)]",
                     ].join(" ")}
+                    style={{ width: dayCellBasis }}
                     aria-label={`${dayLabel(dayDate)} (${count} lessons)`}
                   >
                     <div className="flex items-center justify-center gap-1">
@@ -299,7 +307,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
             </div>
           </div>
 
-          <div className="card p-5 md:p-6">
+          <div className="card min-w-0 flex-1 p-5 md:p-6">
             <div className="flex items-center justify-between gap-3">
               <p className="text-sm font-semibold">{dayLabel(selectedDate)}</p>
               {isTutor ? (
@@ -312,7 +320,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
             {isTutor ? (
               <form
                 onSubmit={addLesson}
-                className="mt-4 grid gap-3 rounded-2xl border border-black/10 bg-black/[0.015] p-4"
+                className="mt-4 flex flex-col gap-3 rounded-2xl border border-black/10 bg-black/[0.015] p-4"
               >
                 <div>
                   <label htmlFor="lesson-title" className="label">
@@ -332,10 +340,10 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                   <label htmlFor="lesson-time-hour" className="label">
                     Time
                   </label>
-                  <div className="mt-1 grid grid-cols-3 gap-2">
+                  <div className="mt-1 flex flex-col gap-2 sm:flex-row">
                     <select
                       id="lesson-time-hour"
-                      className="select hover:bg-black/[0.02]"
+                      className="select hover:bg-black/[0.02] sm:flex-1"
                       value={hour}
                       onChange={(e) => setHour(e.target.value)}
                       aria-label="Hour"
@@ -347,7 +355,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                       ))}
                     </select>
                     <select
-                      className="select hover:bg-black/[0.02]"
+                      className="select hover:bg-black/[0.02] sm:flex-1"
                       value={minute}
                       onChange={(e) => setMinute(e.target.value)}
                       aria-label="Minute"
@@ -359,7 +367,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                       ))}
                     </select>
                     <select
-                      className="select hover:bg-black/[0.02]"
+                      className="select hover:bg-black/[0.02] sm:flex-1"
                       value={period}
                       onChange={(e) => setPeriod(e.target.value as "AM" | "PM")}
                       aria-label="AM or PM"
@@ -402,7 +410,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
               <p className="text-sm font-semibold">
                 Lessons ({selectedLessons.length})
               </p>
-              <div className="mt-3 grid gap-3">
+              <div className="mt-3 flex flex-col gap-3">
                 {!hydrated ? (
                   <div className="rounded-2xl border border-dashed border-black/15 bg-black/[0.02] px-4 py-6 text-center text-sm text-black/55">
                     Loading calendar...
@@ -445,10 +453,10 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                         </div>
 
                         {isTutor && isEditing ? (
-                          <div className="mt-3 grid gap-3 rounded-2xl border border-black/10 bg-white p-3">
-                            <div className="grid grid-cols-3 gap-2">
+                          <div className="mt-3 flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-3">
+                            <div className="flex flex-col gap-2 sm:flex-row">
                               <select
-                                className="select"
+                                className="select sm:flex-1"
                                 value={editingHour}
                                 onChange={(e) => setEditingHour(e.target.value)}
                                 aria-label="Edit hour"
@@ -460,7 +468,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                                 ))}
                               </select>
                               <select
-                                className="select"
+                                className="select sm:flex-1"
                                 value={editingMinute}
                                 onChange={(e) => setEditingMinute(e.target.value)}
                                 aria-label="Edit minute"
@@ -472,7 +480,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                                 ))}
                               </select>
                               <select
-                                className="select"
+                                className="select sm:flex-1"
                                 value={editingPeriod}
                                 onChange={(e) =>
                                   setEditingPeriod(e.target.value as "AM" | "PM")
