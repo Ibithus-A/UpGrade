@@ -2,10 +2,6 @@ export function makeModuleKey(chapterSlug: string, section: string) {
   return `${chapterSlug}::${section}`;
 }
 
-export function makeChapterPassedKey(chapterSlug: string) {
-  return `chapter-pass::${chapterSlug}`;
-}
-
 export function sectionAnchorId(chapterId: number, section: string) {
   const prefix = section.split(" ")[0] ?? "";
   const numeric = prefix.replace(/\./g, "-").replace(/[^0-9-]/g, "");

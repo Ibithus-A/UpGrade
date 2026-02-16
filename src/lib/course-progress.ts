@@ -42,14 +42,3 @@ export function writeCourseProgressState(next: CourseProgressState) {
   window.localStorage.setItem(COURSE_PROGRESS_STORAGE_KEY, JSON.stringify(next));
   window.dispatchEvent(new Event(COURSE_PROGRESS_SYNC_EVENT));
 }
-
-export function sectionAnchorId(chapterId: number, section: string) {
-  const prefix = section.split(" ")[0] ?? "";
-  const numeric = prefix.replace(/\./g, "-").replace(/[^0-9-]/g, "");
-  if (numeric) return `c${chapterId}-s${numeric}`;
-  const fallback = section
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-  return `c${chapterId}-s-${fallback}`;
-}

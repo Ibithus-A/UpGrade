@@ -41,13 +41,23 @@ const ROLE_CONFIG = {
   },
 } as const;
 
+let cachedSecret: string | null = null;
+let cachedQuickLearnAllowList: string[] | null = null;
+
 function getSecret() {
+  if (cachedSecret) return cachedSecret;
+
   const secret = process.env.AUTH_SESSION_SECRET;
-  if (secret && secret.length >= 32) return secret;
+  if (secret && secret.length >= 32) {
+    cachedSecret = secret;
+    return cachedSecret;
+  }
   if (process.env.NODE_ENV === "production") {
     throw new Error("AUTH_SESSION_SECRET must be set to at least 32 characters in production.");
   }
-  return "dev-only-upgrade-auth-secret-change-this-in-production";
+
+  cachedSecret = "dev-only-upgrade-auth-secret-change-this-in-production";
+  return cachedSecret;
 }
 
 function encodeBase64Url(value: string) {
@@ -163,15 +173,12 @@ export async function clearSession() {
 }
 
 export function hasQuickLearnAccessForStudent(email: string) {
-  const configured = (process.env.QUICKLEARN_3_MONTH_PLAN_EMAILS ?? "")
-    .split(",")
-    .map((item) => item.trim().toLowerCase())
-    .filter(Boolean);
-
-  const allowList =
-    configured.length > 0
-      ? configured
+  if (!cachedQuickLearnAllowList) {
+    const configured = (process.env.QUICKLEARN_3_MONTH_PLAN_EMAILS ?? "").trim();
+    cachedQuickLearnAllowList = configured
+      ? configured.split(",").map((item) => item.trim().toLowerCase()).filter(Boolean)
       : [HARDCODED_CREDENTIALS.student.email.toLowerCase()];
+  }
 
-  return allowList.includes(email.trim().toLowerCase());
+  return cachedQuickLearnAllowList.includes(email.trim().toLowerCase());
 }
