@@ -161,3 +161,17 @@ export async function clearSession() {
     expires: new Date(0),
   });
 }
+
+export function hasQuickLearnAccessForStudent(email: string) {
+  const configured = (process.env.QUICKLEARN_3_MONTH_PLAN_EMAILS ?? "")
+    .split(",")
+    .map((item) => item.trim().toLowerCase())
+    .filter(Boolean);
+
+  const allowList =
+    configured.length > 0
+      ? configured
+      : [HARDCODED_CREDENTIALS.student.email.toLowerCase()];
+
+  return allowList.includes(email.trim().toLowerCase());
+}
