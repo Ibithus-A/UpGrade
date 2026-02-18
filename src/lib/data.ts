@@ -14,7 +14,7 @@ export const plans: Plan[] = [
   {
     name: "3 Month Plan",
     badge: "Quick",
-    price: "£150",
+    price: "£200",
     cadence: "PCM",
     details: "Daily group check-ins (Mon–Fri): 2 check ins",
     bullets: [
@@ -33,7 +33,7 @@ export const plans: Plan[] = [
   {
     name: "6 Month Plan",
     badge: "Normal",
-    price: "£125",
+    price: "£150",
     cadence: "PCM",
     details: "Daily group check-ins (Mon–Fri): 1 check-in",
     bullets: [
@@ -61,11 +61,12 @@ export const plans: Plan[] = [
       "Target weaknesses quickly and efficiently",
       "Flexible scheduling",
     ],
-    termsTitle: "Taster lesson & study requirements",
+    termsTitle: "Right-fit call & study requirements",
     terms: [
-      "A free 1-hour taster session is available to confirm fit and goals.",
-      "After the taster session, expectations align with the 6 Month Plan: (1) attendance at agreed check-ins/lessons, (2) completion of 3+ subsections in the chosen topic area, and (3) completion of all exam-style questions for each completed subsection.",
-      "Targets and requirements can be adjusted to match your needs; this will be discussed and agreed during your call.",
+      "A free right-fit call is available to confirm student objectives and whether our programme is the right match.",
+      "During the call, we explain exactly how we deliver results and review the terms & conditions for the A/A* within 3 months guarantee.",
+      "After the call, expectations align with the 6 Month Plan: (1) attendance at agreed check-ins/lessons, (2) completion of 3+ subsections in the chosen topic area, and (3) completion of all exam-style questions for each completed subsection.",
+      "Targets and requirements can be adjusted to match your needs; this is discussed and agreed during your call.",
     ],
   },
 ];
@@ -224,7 +225,7 @@ export const faqs: FAQItem[] = [
     a: "We teach all main UK exam boards (e.g., OCR, Edexcel). If you’re unsure, get in touch and we’ll confirm coverage.",
   },
   {
-    q: "Do you offer trial lessons?",
-    a: "Yes — we offer a FREE 1-hour session. See the home page for details.",
+    q: "Do you offer a right-fit call?",
+    a: "Yes. We offer a free right-fit call to discuss student objectives, how we deliver them, and the terms & conditions for the A/A* within 3 months guarantee.",
   },
 ];

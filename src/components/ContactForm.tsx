@@ -56,8 +56,8 @@ export function ContactForm() {
             <h2 className="h2">Contact UpGrade</h2>
             <p className="mt-2 max-w-lg lead">
               Tell us your goals and we’ll recommend the best plan. We also
-              offer a <span className="font-semibold text-black">FREE 1-hour session</span>{" "}
-              to get you started.
+              offer a <span className="font-semibold text-black">free right-fit call</span>{" "}
+              to discuss objectives, delivery, and guarantee terms.
             </p>
 
             <div className="mt-6 card p-6">

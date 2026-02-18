@@ -98,7 +98,7 @@ export default function HomePage() {
                   href="/#contact"
                   className="btn btn-primary btn-lg w-full sm:w-auto"
                 >
-                  Book free 1-hour session
+                  Book free right-fit call
                 </Link>
                 <Link
                   href="/#pricing"

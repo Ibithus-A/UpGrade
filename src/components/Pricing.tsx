@@ -97,13 +97,13 @@ export function Pricing() {
         </div>
 
         <div className="mt-8 card p-6">
-          <p className="text-sm font-semibold">Free 1-hour taster session</p>
+          <p className="text-sm font-semibold">Free right-fit call</p>
           <p className="mt-1 text-sm text-black/60">
-            Meet your tutor, set goals, and get a quick diagnostic on what will
-            move your grade fastest.
+            Discuss student objectives, how we deliver them, and the terms &
+            conditions for our A/A* within 3 months guarantee.
           </p>
           <Link href="/#contact" className="mt-4 btn btn-ghost btn-md">
-            Book the free session
+            Book your call
           </Link>
         </div>
       </div>
