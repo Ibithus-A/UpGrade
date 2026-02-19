@@ -6,8 +6,8 @@ export default function PricingHomePage() {
       <div className="container">
         <h1 className="h1 text-4xl md:text-5xl">Pricing</h1>
         <p className="mt-2 lead max-w-2xl">
-          We specialise exclusively in GCSE and A-Level Maths. Choose your
-          level to view plans and pricing.
+          We specialise exclusively in GCSE and A-Level Maths. Traditional
+          Tutoring (1:1) is currently available. Course plans are In Progress.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

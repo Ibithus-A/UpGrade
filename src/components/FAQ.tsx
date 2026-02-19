@@ -4,7 +4,7 @@ export function FAQ() {
   return (
     <section id="faq" className="section scroll-mt-24">
       <div className="container">
-        <h2 className="h2">FAQ's</h2>
+        <h2 className="h2">FAQ&apos;s</h2>
         <p className="mt-2 max-w-2xl lead">
           Clear answers, simple expectations, and high standards.
         </p>

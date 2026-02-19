@@ -15,10 +15,6 @@ type SessionPayload = {
 const SESSION_VERSION = 2;
 export const SESSION_COOKIE = "upgrade_session_v2";
 
-// Hardcoded login details (for quick reference):
-// Student: Student@UpGrade.com / Student123
-// Tutor: Ibrahim@UpGrade.com / Ibrahim123
-
 const HARDCODED_CREDENTIALS = {
   student: {
     email: "Student@UpGrade.com",

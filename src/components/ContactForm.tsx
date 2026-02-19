@@ -59,7 +59,7 @@ export function ContactForm() {
             </p>
 
             <div className="mt-6 card p-6">
-              <p className="text-sm font-semibold">What You'll Get</p>
+              <p className="text-sm font-semibold">What You&apos;ll Get</p>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-black/70 sm:whitespace-nowrap">
                 <li>Tailored Maths frameworks built around your target grade</li>
                 <li>Specialist weekly tutorials on your highest-impact weak areas</li>

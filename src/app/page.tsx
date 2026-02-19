@@ -155,6 +155,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="courses" className="section scroll-mt-24">
+        <div className="container">
+          <div className="card p-6 md:p-8">
+            <p className="text-sm font-semibold">Courses</p>
+            <p className="mt-2 text-sm text-black/65">Coming soon..</p>
+          </div>
+        </div>
+      </section>
+
       <FAQ />
       <ContactForm />
     </main>

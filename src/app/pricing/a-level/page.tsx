@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Pricing } from "@/components/Pricing";
 import { plans } from "@/lib/data";
 
-const aLevelPlans = plans.filter((p) => p.badge.startsWith("A-Level"));
+const aLevelPlans = plans.filter((p) => p.badge.startsWith("A-Level") && p.badge.includes("1:1"));
 
 export default function ALevelPricingPage() {
   return (
@@ -18,7 +18,7 @@ export default function ALevelPricingPage() {
       <Pricing
         items={aLevelPlans}
         title="A-Level Pricing"
-        description="A-Level Maths plans built for ambitious grade targets and measurable improvement."
+        description="Currently available: A-Level Traditional Tutoring (1:1). 3 Month and 6 Month plans are In Progress."
       />
     </main>
   );

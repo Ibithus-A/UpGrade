@@ -30,12 +30,12 @@ export function QuickLearnWidget({
     {
       id: "welcome",
       role: "assistant",
-      text: "QuickLearn preview is ready. AI responses are disabled for now.",
+      text: "QuickLearn is Coming soon.. AI responses are disabled for now.",
     },
   ]);
 
   const title = useMemo(
-    () => (studentMode ? "QuickLearn" : "QuickLearn (Preview)"),
+    () => (studentMode ? "QuickLearn (Coming soon..)" : "QuickLearn (Coming soon..)"),
     [studentMode],
   );
 
@@ -67,7 +67,7 @@ export function QuickLearnWidget({
       <div className="flex items-center justify-between border-b border-black/10 bg-white px-4 py-3">
         <div className="min-w-0">
           <p className="text-sm font-semibold">{title}</p>
-          <p className="text-xs text-black/55">Course helper UI scaffold</p>
+          <p className="text-xs text-black/55">Linked to course rollout. Coming soon..</p>
         </div>
         <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
           Close
