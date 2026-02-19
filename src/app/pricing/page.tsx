@@ -11,10 +11,16 @@ export default function PricingHomePage() {
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link href="/pricing/gcse" className="btn btn-primary btn-md">
+          <Link
+            href="/pricing/gcse"
+            className="btn btn-primary btn-md ui-motion hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+          >
             GCSE
           </Link>
-          <Link href="/pricing/a-level" className="btn btn-secondary btn-md">
+          <Link
+            href="/pricing/a-level"
+            className="btn btn-secondary btn-md ui-motion hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(0,0,0,0.08)]"
+          >
             A-Level
           </Link>
         </div>

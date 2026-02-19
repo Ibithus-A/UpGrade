@@ -35,7 +35,9 @@ function PlanCard({
         <p className="pb-1 text-sm text-black/55">{p.cadence}</p>
       </div>
 
-      <p className="mt-2 text-sm text-black/60">{p.details}</p>
+      <p className="mt-2 text-sm text-black/60">
+        {p.badge.includes("1:1") ? "1:1 Tutoring" : "Course format"}
+      </p>
 
       {/* Bullets */}
       <ul className="mt-5 space-y-2 text-sm text-black/75">
@@ -52,8 +54,11 @@ function PlanCard({
 
       {/* Actions: fixed vertical plane across plans */}
       <div className="mt-6 flex min-h-[52px] flex-col gap-3">
-        <Link href={contactHref} className="btn btn-primary btn-md h-11 min-h-11 w-full whitespace-nowrap leading-none">
-          Enquire now
+        <Link
+          href={contactHref}
+          className="btn btn-primary btn-md h-11 min-h-11 w-full whitespace-nowrap leading-none ui-motion hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+        >
+          Book your Call
         </Link>
       </div>
     </div>

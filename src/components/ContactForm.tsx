@@ -60,11 +60,11 @@ export function ContactForm() {
 
             <div className="mt-6 card p-6">
               <p className="text-sm font-semibold">What you’ll get</p>
-              <ul className="mt-3 space-y-2 text-sm text-black/70">
-                <li>• A clear study plan aligned to your exam board</li>
-                <li>• Structured practice + exam questions for each topic</li>
-                <li>• High accountability through consistent check-ins</li>
-                <li>• Book Your Free Call to discuss objectives, delivery, and guarantee terms</li>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-black/70">
+                <li>A clear study plan aligned to your exam board</li>
+                <li>Structured practice + exam questions for each topic</li>
+                <li>High accountability through consistent check-ins</li>
+                <li>Book Your Free Call to discuss objectives, delivery, and guarantee terms</li>
               </ul>
             </div>
           </div>

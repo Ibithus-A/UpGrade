@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 const steps = [
   { title: "Teach", desc: "Clear explanations & examples" },
   { title: "Practise", desc: "Targeted questions for accuracy" },
-  { title: "Exam questions", desc: "Timed exam practice per section" },
+  { title: "Exam Questions", desc: "Timed exam practice per section" },
   { title: "Track", desc: "Progress checks & accountability" },
 ];
 
@@ -101,7 +101,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/pricing"
-                  className="btn btn-secondary btn-lg w-full sm:w-auto"
+                  className="btn btn-secondary btn-lg w-full sm:w-auto ui-motion hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(0,0,0,0.08)]"
                 >
                   View Pricing
                 </Link>
@@ -117,7 +117,7 @@ export default function HomePage() {
 
             {/* Method */}
             <div className="card min-w-0 flex-1 overflow-hidden p-6 md:p-8">
-              <p className="text-sm font-semibold">The UpGrade method</p>
+              <p className="text-sm font-semibold">The UpGrade Method</p>
 
               {/* Vertical flowchart only */}
               <div className="mt-5 flex flex-col gap-3">
@@ -132,7 +132,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-6 rounded-3xl bg-black/[0.03] p-4">
-                <p className="text-sm font-semibold">Built for results</p>
+                <p className="text-sm font-semibold">Built for Results</p>
                 <p className="mt-1 muted text-sm">
                   Premium support, simple systems, consistent execution.
                 </p>
