@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Pricing } from "@/components/Pricing";
 import { plans } from "@/lib/data";
 
-const gcsePlans = plans.filter((p) => p.badge.startsWith("GCSE") && p.badge.includes("1:1"));
+const gcsePlans = plans.filter((p) => p.badge.startsWith("GCSE"));
 
 export default function GCSEPricingPage() {
   return (
@@ -18,7 +18,7 @@ export default function GCSEPricingPage() {
       <Pricing
         items={gcsePlans}
         title="GCSE Pricing"
-        description="Currently available: GCSE Traditional Tutoring (1:1). 3 Month and 6 Month plans are In Progress."
+        description="GCSE Maths plans designed for consistent progress and exam-ready performance."
       />
     </main>
   );
