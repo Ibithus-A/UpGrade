@@ -59,12 +59,13 @@ export function ContactForm() {
             </p>
 
             <div className="mt-6 card p-6">
-              <p className="text-sm font-semibold">What you’ll get</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-black/70">
-                <li>A clear study plan aligned to your exam board</li>
-                <li>Structured practice + exam questions for each topic</li>
-                <li>High accountability through consistent check-ins</li>
-                <li>Book Your Free Call to discuss objectives, delivery, and guarantee terms</li>
+              <p className="text-sm font-semibold">What You'll Get</p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-black/70 sm:whitespace-nowrap">
+                <li>Tailored Maths frameworks built around your target grade</li>
+                <li>Specialist weekly tutorials on your highest-impact weak areas</li>
+                <li>Expert-designed GCSE and A-Level Maths learning pathways</li>
+                <li>Precision exam-method systems for marks, timing, and accuracy</li>
+                <li>Book Your Free Call to align your strategy and next steps</li>
               </ul>
             </div>
           </div>

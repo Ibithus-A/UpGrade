@@ -78,7 +78,7 @@ export default function HomePage() {
         <div className="container">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
             <div className="min-w-0 flex-1">
-              <p className="kicker">Premium Maths tuition • GCSE & A-Level</p>
+              <p className="kicker">Premium Maths Tuition • GCSE & A-Level</p>
 
               <h1 className="mt-4 h1">
                 Upgrade your grades with{" "}

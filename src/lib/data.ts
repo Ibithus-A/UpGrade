@@ -269,39 +269,39 @@ export type FAQItem = { q: string; a: string };
 
 export const faqs: FAQItem[] = [
   {
-    q: "Who is UpGrade designed for?",
+    q: "Who Is UpGrade Designed For?",
     a: "Students who are serious about improving GCSE Maths or A-Level Maths results through structured teaching, consistent accountability, and exam-focused execution.",
   },
   {
-    q: "How does onboarding work after the Free Call?",
+    q: "How Does Onboarding Work After The Free Call?",
     a: "We align on target grades, timeline, exam board, and current gaps, then set a clear starting roadmap with expectations for attendance, independent work, and review points.",
   },
   {
-    q: "How do you personalise support without losing structure?",
+    q: "How Do You Personalise Support Without Losing Structure?",
     a: "Every student follows a structured progress framework, but sequencing, pacing, and emphasis are adapted to their baseline, timeline, and paper-specific weaknesses.",
   },
   {
-    q: "What standard of commitment do you expect from students?",
+    q: "What Standard Of Commitment Do You Expect From Students?",
     a: "We expect punctual attendance, completion of assigned subsections, and full completion of exam-style questions. Consistency is a core part of how results are delivered.",
   },
   {
-    q: "How is progress measured and communicated?",
+    q: "How Is Progress Measured And Communicated?",
     a: "Progress is tracked against subsection completion, exam-question performance, and quality of method. We use this data to adjust targets and keep improvement measurable.",
   },
   {
-    q: "Which exam boards and specifications do you cover?",
+    q: "Which Exam Boards And Specifications Do You Cover?",
     a: "We support major UK GCSE and A-Level Maths specifications, including AQA, Edexcel, and OCR. Coverage is confirmed during onboarding.",
   },
   {
-    q: "How do terms and refunds work?",
+    q: "How Do Terms And Refunds Work?",
     a: "Terms are reviewed during your Free Call and confirmed before starting. Refund decisions are considered case by case in line with plan commitments and engagement.",
   },
   {
-    q: "What communication can families expect outside lessons?",
+    q: "What Communication Can Families Expect Outside Lessons?",
     a: "We keep communication concise and performance-focused, with updates centered on progress, risks, and next actions needed to stay on track.",
   },
   {
-    q: "Do you offer a Free Call before enrolment?",
+    q: "Do You Offer A Free Call Before Enrolment?",
     a: "Yes. The Free Call is where we assess objectives, explain delivery, and confirm whether the programme is the right match before any plan begins.",
   },
 ];
