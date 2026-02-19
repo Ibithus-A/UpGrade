@@ -127,7 +127,7 @@ export function TestimonialSlider({
                 onClick={() => setIndex(i)}
                 className={[
                   "h-2 w-2 rounded-full",
-                  "transition-opacity duration-200",
+                  "transition-opacity ui-motion",
                   i === safeIndex
                     ? "bg-black opacity-100"
                     : "bg-black/20 opacity-70 hover:opacity-100",

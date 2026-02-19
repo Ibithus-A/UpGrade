@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 
 const navItems = [
   { label: "Courses", href: "/login?next=/courses/a-level-maths/chapter-01%3Fsection%3D1" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
@@ -19,7 +19,7 @@ export function Navbar() {
 
           <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
             {navItems.map((i) => (
-              <Link key={i.href} href={i.href} className="ui-link" scroll={i.href.includes("#")}>
+              <Link key={i.href} href={i.href} className="ui-link">
                 {i.label}
               </Link>
             ))}

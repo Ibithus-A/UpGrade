@@ -13,8 +13,8 @@ function getSiteUrl() {
 
 export const siteConfig = {
   name: "UpGrade",
-  title: "UpGrade | Premium GCSE & A-Level STEM Tuition",
+  title: "UpGrade | Premium GCSE & A-Level Maths Tuition",
   description:
-    "UpGrade delivers premium GCSE and A-Level STEM lessons with structured support, exam focus, and high standards.",
+    "UpGrade delivers premium GCSE and A-Level Maths lessons with structured support, exam focus, and high standards.",
   url: getSiteUrl(),
 };

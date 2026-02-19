@@ -55,9 +55,7 @@ export function ContactForm() {
           <div className="min-w-0 flex-1">
             <h2 className="h2">Contact UpGrade</h2>
             <p className="mt-2 max-w-lg lead">
-              Tell us your goals and we’ll recommend the best plan. We also
-              offer a <span className="font-semibold text-black">free right-fit call</span>{" "}
-              to discuss objectives, delivery, and guarantee terms.
+              Tell us your goals and we’ll recommend the best plan.
             </p>
 
             <div className="mt-6 card p-6">
@@ -66,10 +64,8 @@ export function ContactForm() {
                 <li>• A clear study plan aligned to your exam board</li>
                 <li>• Structured practice + exam questions for each topic</li>
                 <li>• High accountability through consistent check-ins</li>
+                <li>• Book Your Free Call to discuss objectives, delivery, and guarantee terms</li>
               </ul>
-              <p className="mt-4 text-sm text-black/60">
-                Payments are handled via bank transfer after each lesson.
-              </p>
             </div>
           </div>
 
@@ -139,7 +135,6 @@ export function ContactForm() {
                     </option>
                     <option>GCSE</option>
                     <option>A-Level</option>
-                    <option>International equivalent</option>
                   </select>
                 </div>
               </div>
@@ -154,7 +149,7 @@ export function ContactForm() {
                   autoComplete="off"
                   required
                   className="field"
-                  placeholder="e.g. A-Level Maths, GCSE Physics..."
+                  placeholder="e.g. A-Level Maths, GCSE Maths..."
                 />
               </div>
 

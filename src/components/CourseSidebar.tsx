@@ -79,7 +79,7 @@ export function CourseSidebar({
 
   const activeSectionIdx = Number(searchParams.get("section") ?? "1");
   const chapterLinkBase =
-    "flex min-w-0 flex-1 items-center justify-between rounded-xl px-2 py-1.5 text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20";
+    "flex min-w-0 flex-1 items-center justify-between rounded-xl px-2 py-1.5 text-sm transition-all ui-motion focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20";
   const sectionLinkBase =
     "flex min-w-0 items-start justify-between gap-2 rounded-lg px-2 py-1 text-xs";
 

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Pricing } from "@/components/Pricing";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { FAQ } from "@/components/FAQ";
 import { ContactForm } from "@/components/ContactForm";
@@ -48,7 +47,7 @@ export default function HomePage() {
     url: siteConfig.url,
     description: siteConfig.description,
     areaServed: "United Kingdom",
-    knowsAbout: ["GCSE STEM", "A-Level STEM", "A-Level Mathematics"],
+    knowsAbout: ["GCSE Mathematics", "A-Level Mathematics"],
   };
 
   const faqSchema = {
@@ -79,7 +78,7 @@ export default function HomePage() {
         <div className="container">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
             <div className="min-w-0 flex-1">
-              <p className="kicker">Premium STEM tuition • GCSE & A-Level</p>
+              <p className="kicker">Premium Maths tuition • GCSE & A-Level</p>
 
               <h1 className="mt-4 h1">
                 Upgrade your grades with{" "}
@@ -90,27 +89,27 @@ export default function HomePage() {
               <p className="mt-4 lead max-w-xl">
                 UpGrade delivers a clean, high-standards approach: clear
                 teaching, consistent accountability, and exam questions for
-                every topic.
+                every topic. We specialise exclusively in GCSE and A-Level Maths.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link
-                  href="/#contact"
+                  href="#contact"
                   className="btn btn-primary btn-lg w-full sm:w-auto"
                 >
-                  Book free right-fit call
+                  Book Your Free Call
                 </Link>
                 <Link
-                  href="/#pricing"
+                  href="/pricing"
                   className="btn btn-secondary btn-lg w-full sm:w-auto"
                 >
-                  View pricing
+                  View Pricing
                 </Link>
               </div>
 
               <div className="mt-8">
                 <div className="card card-hover p-4">
-                  <p className="font-semibold">Exam boards</p>
+                  <p className="font-semibold">Exam Boards</p>
                   <p className="mt-1 muted text-sm">AQA • Edexcel • OCR</p>
                 </div>
               </div>
@@ -142,8 +141,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <Pricing />
 
       {/* Testimonials */}
       <section id="testimonials" className="section scroll-mt-24">

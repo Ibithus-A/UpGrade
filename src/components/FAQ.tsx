@@ -19,7 +19,7 @@ export function FAQ() {
                 >
                   <span className="text-sm font-semibold">{item.q}</span>
                   <span
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/5 text-black/80 transition-transform duration-300 group-open:rotate-45"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/5 text-black/80 transition-transform ui-motion group-open:rotate-45"
                     aria-hidden="true"
                   >
                     +
@@ -27,7 +27,7 @@ export function FAQ() {
                 </summary>
                 <div
                   id={`faq-answer-${i}`}
-                  className="overflow-hidden transition-all duration-300 ease-out group-open:mt-3"
+                  className="overflow-hidden transition-all ui-motion group-open:mt-3"
                   role="region"
                   aria-labelledby={`faq-question-${i}`}
                 >

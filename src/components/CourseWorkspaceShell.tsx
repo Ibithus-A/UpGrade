@@ -36,7 +36,7 @@ export function CourseWorkspaceShell({
           type="button"
           onClick={() => !chatOpen && setSidebarOpen((v) => !v)}
           className={[
-            "inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/90 text-black/80 shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-[background-color,color,opacity] duration-300 ease-out hover:bg-white hover:text-black",
+            "inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/90 text-black/80 shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-[background-color,color,opacity] ui-motion hover:bg-white hover:text-black",
             chatOpen ? "pointer-events-none opacity-40" : "",
           ].join(" ")}
           aria-expanded={sidebarOpen}
@@ -53,7 +53,7 @@ export function CourseWorkspaceShell({
             setSidebarOpen(false);
             setChatOpen((v) => !v);
           }}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-black text-white shadow-[0_8px_20px_rgba(0,0,0,0.2)] transition-[background-color,opacity] duration-300 ease-out hover:bg-black/90"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-black text-white shadow-[0_8px_20px_rgba(0,0,0,0.2)] transition-[background-color,opacity] ui-motion hover:bg-black/90"
           aria-label="Toggle QuickLearn"
           aria-expanded={chatOpen}
         >
@@ -71,7 +71,7 @@ export function CourseWorkspaceShell({
       <div className="relative min-w-0">
         <div
           className={[
-            "transition-[transform,opacity] duration-300 ease-out",
+            "transition-[transform,opacity] ui-motion",
             chatOpen
               ? "pointer-events-none absolute inset-0 translate-y-2 opacity-0"
               : "relative translate-y-0 opacity-100",
@@ -81,7 +81,7 @@ export function CourseWorkspaceShell({
         </div>
         <div
           className={[
-            "transition-[transform,opacity] duration-300 ease-out",
+            "transition-[transform,opacity] ui-motion",
             chatOpen
               ? "relative translate-y-0 opacity-100"
               : "pointer-events-none absolute inset-0 -translate-y-2 opacity-0",
@@ -97,7 +97,7 @@ export function CourseWorkspaceShell({
 
       <div
         className={[
-          "fixed inset-0 z-40 bg-black/25 transition-opacity duration-300 ease-out",
+          "fixed inset-0 z-40 bg-black/25 transition-opacity ui-motion",
           sidebarOpen ? "opacity-100" : "pointer-events-none opacity-0",
         ].join(" ")}
         onClick={() => setSidebarOpen(false)}
@@ -106,7 +106,7 @@ export function CourseWorkspaceShell({
       <div
         id="course-sidebar-drawer"
         className={[
-          "fixed top-0 left-0 z-50 h-dvh w-[min(92vw,380px)] overflow-y-auto overscroll-y-contain p-3 transition-transform duration-300 ease-out",
+          "fixed top-0 left-0 z-50 h-dvh w-[min(92vw,380px)] overflow-y-auto overscroll-y-contain p-3 transition-transform ui-motion",
           sidebarOpen ? "translate-x-0" : "pointer-events-none -translate-x-[105%]",
         ].join(" ")}
       >

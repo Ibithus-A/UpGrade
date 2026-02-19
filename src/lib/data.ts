@@ -12,9 +12,9 @@ export type Plan = {
 
 export const plans: Plan[] = [
   {
-    name: "3 Month Plan",
-    badge: "Quick",
-    price: "£200",
+    name: "A-Level • 3 Month Plan",
+    badge: "A-Level • Quick",
+    price: "£600",
     cadence: "PCM",
     details: "Daily group check-ins (Mon–Fri): 2 check ins",
     bullets: [
@@ -31,9 +31,9 @@ export const plans: Plan[] = [
     ],
   },
   {
-    name: "6 Month Plan",
-    badge: "Normal",
-    price: "£150",
+    name: "A-Level • 6 Month Plan",
+    badge: "A-Level • Normal",
+    price: "£450",
     cadence: "PCM",
     details: "Daily group check-ins (Mon–Fri): 1 check-in",
     bullets: [
@@ -51,11 +51,11 @@ export const plans: Plan[] = [
     highlighted: true,
   },
   {
-    name: "Custom Plan",
-    badge: "1:1",
-    price: "£75",
+    name: "A-Level • 1:1 Tutoring",
+    badge: "A-Level • 1:1",
+    price: "£100",
     cadence: "per hour",
-    details: "1:1 tutoring only (billed per hour)",
+    details: "1:1 tutoring only",
     bullets: [
       "Fully personalised lesson plan",
       "Target weaknesses quickly and efficiently",
@@ -63,9 +63,67 @@ export const plans: Plan[] = [
     ],
     termsTitle: "Right-fit call & study requirements",
     terms: [
-      "A free right-fit call is available to confirm student objectives and whether our programme is the right match.",
-      "During the call, we explain exactly how we deliver results and review the terms & conditions for the A/A* within 3 months guarantee.",
-      "After the call, expectations align with the 6 Month Plan: (1) attendance at agreed check-ins/lessons, (2) completion of 3+ subsections in the chosen topic area, and (3) completion of all exam-style questions for each completed subsection.",
+      "A Free Call is available to confirm student objectives and whether our programme is the right match.",
+      "During the Free Call, we explain exactly how we deliver results and review the terms & conditions for the A/A* within 3 months guarantee.",
+      "After the call, expectations align with the 6 Month Plan: (1) attendance at agreed check-ins/lessons, (2) completion of 3+ subsections in the chosen A-Level Maths topic area, and (3) completion of all exam-style questions for each completed subsection.",
+      "Targets and requirements can be adjusted to match your needs; this is discussed and agreed during your call.",
+    ],
+  },
+  {
+    name: "GCSE • 3 Month Plan",
+    badge: "GCSE • Quick",
+    price: "£400",
+    cadence: "PCM",
+    details: "Daily group check-ins (Mon–Fri): 2 check ins",
+    bullets: [
+      "Fast-paced support with clear weekly targets",
+      "Built for short timelines and rapid improvement",
+      "Structured GCSE Maths progress tracking",
+    ],
+    termsTitle: "Cancellation & refund terms",
+    terms: [
+      "You may cancel after the first month.",
+      "Refunds: 50% of remaining fees may be issued if eligibility criteria are met.",
+      "Eligibility requires: (1) attendance at all scheduled Mon–Fri group check-ins, (2) completion of 5+ subsections in your chosen GCSE Maths topic area, and (3) completion of all exam-style questions for each completed subsection.",
+      "We may agree tailored targets where appropriate; any changes will be confirmed during your call.",
+    ],
+  },
+  {
+    name: "GCSE • 6 Month Plan",
+    badge: "GCSE • Normal",
+    price: "£400",
+    cadence: "PCM",
+    details: "Daily group check-ins (Mon–Fri): 1 check-in",
+    bullets: [
+      "Longer runway for consistent grade building",
+      "Sustainable pacing with regular checkpoints",
+      "Exam-board aligned approach",
+    ],
+    termsTitle: "Cancellation & refund terms",
+    terms: [
+      "You may cancel after the first month.",
+      "Refunds: no refunds are provided after the first payment.",
+      "Eligibility requires: (1) attendance at all scheduled group check-ins, (2) completion of 3+ subsections in your chosen GCSE Maths topic area, and (3) completion of all exam-style questions for each completed subsection.",
+      "We may agree tailored targets where appropriate; any changes will be confirmed during your call.",
+    ],
+    highlighted: true,
+  },
+  {
+    name: "GCSE • 1:1 Tutoring",
+    badge: "GCSE • 1:1",
+    price: "£75",
+    cadence: "per hour",
+    details: "1:1 tutoring only",
+    bullets: [
+      "Fully personalised lesson plan",
+      "Target weaknesses quickly and efficiently",
+      "Flexible scheduling",
+    ],
+    termsTitle: "Right-fit call & study requirements",
+    terms: [
+      "A Free Call is available to confirm student objectives and whether our programme is the right match.",
+      "During the Free Call, we explain exactly how we deliver results and review the terms & conditions for the A/A* within 3 months guarantee.",
+      "After the call, expectations align with the 6 Month Plan: (1) attendance at agreed check-ins/lessons, (2) completion of 3+ subsections in the chosen GCSE Maths topic area, and (3) completion of all exam-style questions for each completed subsection.",
       "Targets and requirements can be adjusted to match your needs; this is discussed and agreed during your call.",
     ],
   },
@@ -86,19 +144,19 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Thomas Reed",
-    role: "GCSE Combined Science",
+    role: "GCSE Maths Student",
     quote:
       "The biggest difference was routine. The daily check-ins kept me consistent, and each session ended with exam-style questions so I stopped losing marks on wording. I moved up a whole grade boundary in my next assessment.",
   },
   {
     name: "Sana Malik",
-    role: "A-Level Maths (International)",
+    role: "A-Level Maths Student",
     quote:
       "I wasn’t sure if my syllabus matched UK A-Level, but they mapped it quickly and focused on the exact skills I needed. The structured practice + exam questions after every subsection helped me fix weak areas fast and feel prepared for the real exam style.",
   },
   {
     name: "Jamal Hassan",
-    role: "Parent of GCSE Student",
+    role: "Parent of GCSE Maths Student",
     quote:
       "UpGrade were extremely organised. We got weekly targets, clear feedback, and measurable progress. My son became more disciplined and his confidence improved because he could see exactly what he’d completed and what was next.",
   },
@@ -123,15 +181,15 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Noah Bennett",
-    role: "Parent of A-Level Student",
+    role: "Parent of A-Level Maths Student",
     quote:
       "What impressed me was how structured everything was. They didn’t just ‘teach’ — they tracked progress and made sure my daughter completed exam questions consistently. Her confidence grew and she stopped panicking in timed conditions.",
   },
   {
     name: "Zara Ahmed",
-    role: "GCSE Physics Student",
+    role: "GCSE Maths Student",
     quote:
-      "The lessons were clear and fast, but never rushed. They showed me how to answer 6-mark questions properly and how to pick out what the question is really asking. My physics grade improved and I finally started enjoying the subject.",
+      "The lessons were clear and fast, but never rushed. They showed me how to break down multi-step maths questions and avoid dropping method marks. My grade improved and I finally started enjoying maths again.",
   },
   {
     name: "Daniel Cooper",
@@ -141,9 +199,9 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Mia Collins",
-    role: "GCSE Chemistry Student",
+    role: "GCSE Maths Student",
     quote:
-      "Before UpGrade, I’d memorise content but still lose marks. They taught me how exam questions are structured, and we practised the exact phrasing needed for marks. My teacher noticed my answers became much clearer and more precise.",
+      "Before UpGrade, I understood topics but still lost marks in exams. They taught me how maths mark schemes work, and we practised writing full method steps clearly. My teacher noticed my solutions became much more precise.",
   },
   {
     name: "Hassan Iqbal",
@@ -153,9 +211,9 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Grace Liu",
-    role: "GCSE Biology Student",
+    role: "GCSE Maths Student",
     quote:
-      "The plan was simple: learn, practise, exam questions. That structure made revision less stressful. I improved on command words and longer answers because we reviewed them properly, not just marked them right or wrong.",
+      "The plan was simple: learn, practise, exam questions. That structure made revision less stressful. I improved on algebra and problem-solving because we reviewed full working properly, not just whether the final answer was right.",
   },
   {
     name: "Ethan Brooks",
@@ -165,7 +223,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Leah Williams",
-    role: "Parent of GCSE Student",
+    role: "Parent of GCSE Maths Student",
     quote:
       "The accountability was the key. The check-ins created routine, and the tutor made sure work was actually completed — not just ‘planned’. My child’s confidence rose because progress was visible and steady.",
   },
@@ -195,9 +253,9 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Kai Robertson",
-    role: "GCSE Science Student",
+    role: "GCSE Maths Student",
     quote:
-      "I didn’t just learn content — I learned how to score marks. The tutor taught me how to interpret questions, what examiners want, and how to avoid common traps. My results improved because my answers became exam-ready.",
+      "I didn’t just learn content — I learned how to score marks in maths papers. The tutor taught me how to interpret questions, what examiners want, and how to avoid common traps. My results improved because my working became exam-ready.",
   },
 ];
 
@@ -205,27 +263,39 @@ export type FAQItem = { q: string; a: string };
 
 export const faqs: FAQItem[] = [
   {
-    q: "Will you add more subjects?",
-    a: "Yes. We plan to add more subjects over time. We prioritise quality, so new subjects will only launch once they meet our standards.",
+    q: "Who is UpGrade designed for?",
+    a: "Students who are serious about improving GCSE Maths or A-Level Maths results through structured teaching, consistent accountability, and exam-focused execution.",
   },
   {
-    q: "What happens if I can’t make it to a lesson?",
-    a: "No problem — please let us know as soon as possible, ideally at least 24 hours in advance.",
+    q: "How does onboarding work after the Free Call?",
+    a: "We align on target grades, timeline, exam board, and current gaps, then set a clear starting roadmap with expectations for attendance, independent work, and review points.",
   },
   {
-    q: "Do you teach international students?",
-    a: "Yes. We teach international equivalents of A-Level Mathematics. If you’re unsure whether your qualification is covered, contact us and we’ll advise.",
+    q: "How do you personalise support without losing structure?",
+    a: "Every student follows a structured progress framework, but sequencing, pacing, and emphasis are adapted to their baseline, timeline, and paper-specific weaknesses.",
   },
   {
-    q: "How are payments handled?",
-    a: "Payments are made via bank transfer after each lesson.",
+    q: "What standard of commitment do you expect from students?",
+    a: "We expect punctual attendance, completion of assigned subsections, and full completion of exam-style questions. Consistency is a core part of how results are delivered.",
   },
   {
-    q: "Which exam boards do you teach?",
-    a: "We teach all main UK exam boards (e.g., OCR, Edexcel). If you’re unsure, get in touch and we’ll confirm coverage.",
+    q: "How is progress measured and communicated?",
+    a: "Progress is tracked against subsection completion, exam-question performance, and quality of method. We use this data to adjust targets and keep improvement measurable.",
   },
   {
-    q: "Do you offer a right-fit call?",
-    a: "Yes. We offer a free right-fit call to discuss student objectives, how we deliver them, and the terms & conditions for the A/A* within 3 months guarantee.",
+    q: "Which exam boards and specifications do you cover?",
+    a: "We support major UK GCSE and A-Level Maths specifications, including AQA, Edexcel, and OCR. Coverage is confirmed during onboarding.",
+  },
+  {
+    q: "How do terms and refunds work?",
+    a: "Terms are reviewed during your Free Call and confirmed before starting. Refund decisions are considered case by case in line with plan commitments and engagement.",
+  },
+  {
+    q: "What communication can families expect outside lessons?",
+    a: "We keep communication concise and performance-focused, with updates centered on progress, risks, and next actions needed to stay on track.",
+  },
+  {
+    q: "Do you offer a Free Call before enrolment?",
+    a: "Yes. The Free Call is where we assess objectives, explain delivery, and confirm whether the programme is the right match before any plan begins.",
   },
 ];

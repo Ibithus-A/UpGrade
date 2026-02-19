@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { plans, type Plan } from "@/lib/data";
 
-function PlanCard({ p }: { p: Plan }) {
-  const hasTerms = Boolean(p.termsTitle && p.terms?.length);
-  const termsId = `plan-terms-${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
-
+function PlanCard({
+  p,
+  contactHref,
+}: {
+  p: Plan;
+  contactHref: string;
+}) {
   return (
     <div
       className={[
@@ -44,67 +47,42 @@ function PlanCard({ p }: { p: Plan }) {
         ))}
       </ul>
 
-      {/* Spacer pushes actions to the bottom so all cards align */}
+      {/* Spacer pushes action buttons to the bottom so all cards align */}
       <div className="mt-auto" />
 
       {/* Actions: fixed vertical plane across plans */}
       <div className="mt-6 flex min-h-[52px] flex-col gap-3">
-        <Link href="/#contact" className="btn btn-primary btn-md w-full">
+        <Link href={contactHref} className="btn btn-primary btn-md h-11 min-h-11 w-full whitespace-nowrap leading-none">
           Enquire now
         </Link>
       </div>
-
-      {/* Expandable terms */}
-      {hasTerms ? (
-        <details className="group mt-3">
-          <summary
-            className="btn btn-ghost btn-md w-full cursor-pointer list-none marker:content-none"
-            aria-controls={termsId}
-          >
-            <span className="group-open:hidden">View terms & conditions</span>
-            <span className="hidden group-open:inline">Hide terms & conditions</span>
-          </summary>
-          <div id={termsId} className="mt-3 rounded-2xl bg-black/[0.03] p-4">
-            <p className="text-sm font-semibold">{p.termsTitle}</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-black/70">
-              {p.terms!.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          </div>
-        </details>
-      ) : null}
     </div>
   );
 }
 
-export function Pricing() {
+export function Pricing({
+  items = plans,
+  title = "Pricing plans",
+  description = "Choose a plan that matches your timeline. Clear structure, consistent accountability, and exam-focused outcomes for GCSE and A-Level Maths only.",
+  contactHref = "/#contact",
+}: {
+  items?: Plan[];
+  title?: string;
+  description?: string;
+  contactHref?: string;
+}) {
   return (
-    <section id="pricing" className="section scroll-mt-24">
+    <section id="pricing" className="scroll-mt-24 pt-4 pb-16 md:pt-6 md:pb-20">
       <div className="container">
-        <h2 className="h2">Pricing plans</h2>
-        <p className="mt-2 max-w-2xl lead">
-          Choose a plan that matches your timeline. Clear structure, consistent
-          accountability, and exam-focused outcomes.
-        </p>
+        <h2 className="h2">{title}</h2>
+        <p className="mt-2 max-w-2xl lead">{description}</p>
 
-        <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-stretch">
-          {plans.map((p) => (
-            <div key={p.name} className="flex min-w-0 flex-1">
-              <PlanCard p={p} />
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((p) => (
+            <div key={p.name} className="flex min-w-0">
+              <PlanCard p={p} contactHref={contactHref} />
             </div>
           ))}
-        </div>
-
-        <div className="mt-8 card p-6">
-          <p className="text-sm font-semibold">Free right-fit call</p>
-          <p className="mt-1 text-sm text-black/60">
-            Discuss student objectives, how we deliver them, and the terms &
-            conditions for our A/A* within 3 months guarantee.
-          </p>
-          <Link href="/#contact" className="mt-4 btn btn-ghost btn-md">
-            Book your call
-          </Link>
         </div>
       </div>
     </section>

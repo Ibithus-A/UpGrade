@@ -277,7 +277,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                     type="button"
                     onClick={() => setSelectedDate(dayDate)}
                     className={[
-                      "h-12 shrink-0 rounded-2xl border text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 transition-all duration-200",
+                      "h-12 shrink-0 rounded-2xl border text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 transition-all ui-motion",
                       isSelected
                         ? "bg-black text-white border-black shadow-[0_8px_16px_rgba(0,0,0,0.18)]"
                         : "bg-white text-black/75 border-black/10 hover:bg-black/[0.03] hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.08)]",
@@ -425,7 +425,7 @@ export function TaskCalendar({ role }: TaskCalendarProps) {
                     return (
                       <article
                         key={lesson.id}
-                        className="animate-fadeUp rounded-2xl border border-black/10 bg-black/[0.02] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(0,0,0,0.06)]"
+                        className="animate-fadeUp rounded-2xl border border-black/10 bg-black/[0.02] p-4 transition-all ui-motion hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(0,0,0,0.06)]"
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div>

@@ -58,7 +58,7 @@ export function QuickLearnWidget({
     <aside
       id="quicklearn-panel"
       className={[
-        "flex h-full min-h-[70vh] flex-col overflow-hidden rounded-2xl border border-black/10 bg-[#f7f7f8] shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-[transform,opacity] duration-300",
+        "flex h-full min-h-[70vh] flex-col overflow-hidden rounded-2xl border border-black/10 bg-[#f7f7f8] shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-[transform,opacity] ui-motion",
         open ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-3",
       ].join(" ")}
       role="complementary"
