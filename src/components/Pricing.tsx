@@ -29,13 +29,7 @@ function PlanCard({
         )}
       </div>
 
-      {/* Price */}
-      <div className="mt-5 flex items-end gap-2">
-        <p className="text-3xl font-semibold tracking-[-0.03em]">{p.price}</p>
-        <p className="pb-1 text-sm text-black/55">{p.cadence}</p>
-      </div>
-
-      <p className="mt-2 text-sm text-black/60">
+      <p className="mt-5 text-sm text-black/60">
         {p.badge.includes("1:1") ? "1:1 Tutoring" : "Structured Tutorial Format"}
       </p>
 
@@ -67,8 +61,8 @@ function PlanCard({
 
 export function Pricing({
   items = plans,
-  title = "Pricing plans",
-  description = "Choose a plan that matches your timeline. Clear structure, consistent accountability, and exam-focused outcomes for GCSE and A-Level Maths only.",
+  title = "Services",
+  description = "Choose the service format that matches your timeline. Book a call and we will tailor the exact fit together.",
   contactHref = "/#contact",
 }: {
   items?: Plan[];
@@ -77,7 +71,7 @@ export function Pricing({
   contactHref?: string;
 }) {
   return (
-    <section id="pricing" className="scroll-mt-24 pt-4 pb-16 md:pt-6 md:pb-20">
+    <section id="services" className="scroll-mt-24 pt-4 pb-16 md:pt-6 md:pb-20">
       <div className="container">
         <h2 className="h2">{title}</h2>
         <p className="mt-2 max-w-2xl lead">{description}</p>

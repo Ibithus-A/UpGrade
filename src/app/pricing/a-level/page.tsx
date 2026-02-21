@@ -9,15 +9,15 @@ export default function ALevelPricingPage() {
     <main id="main-content">
       <div className="container flex items-center justify-between gap-3 pt-4 md:pt-6">
         <Link href="/pricing" className="btn btn-ghost btn-sm">
-          ← Back to pricing
+          ← Back to services
         </Link>
         <Link href="/pricing/gcse" className="btn btn-ghost btn-sm">
-          GCSE pricing →
+          GCSE services →
         </Link>
       </div>
       <Pricing
         items={aLevelPlans}
-        title="A-Level Pricing"
+        title="A-Level Services"
         description="A-Level Maths plans built for ambitious grade targets and measurable improvement."
       />
     </main>

@@ -9,15 +9,15 @@ export default function GCSEPricingPage() {
     <main id="main-content">
       <div className="container flex items-center justify-between gap-3 pt-4 md:pt-6">
         <Link href="/pricing" className="btn btn-ghost btn-sm">
-          ← Back to pricing
+          ← Back to services
         </Link>
         <Link href="/pricing/a-level" className="btn btn-ghost btn-sm">
-          A-Level pricing →
+          A-Level services →
         </Link>
       </div>
       <Pricing
         items={gcsePlans}
-        title="GCSE Pricing"
+        title="GCSE Services"
         description="GCSE Maths plans designed for consistent progress and exam-ready performance."
       />
     </main>

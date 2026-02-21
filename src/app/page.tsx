@@ -103,7 +103,7 @@ export default function HomePage() {
                   href="/pricing"
                   className="btn btn-secondary btn-lg w-full sm:w-auto ui-motion hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(0,0,0,0.08)]"
                 >
-                  View Pricing
+                  View Services
                 </Link>
               </div>
 

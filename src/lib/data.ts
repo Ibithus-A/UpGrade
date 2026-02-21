@@ -1,8 +1,6 @@
 export type Plan = {
   name: string;
   badge: string;
-  price: string;
-  cadence?: string;
   details: string;
   bullets: string[];
   termsTitle?: string;
@@ -14,8 +12,6 @@ export const plans: Plan[] = [
   {
     name: "A-Level • 3 Month Plan",
     badge: "A-Level • Fast",
-    price: "£750",
-    cadence: "PCM",
     details: "Structured format: Learn from our notes + 2 x 60-minute weekly tutorials",
     bullets: [
       "Intensive 12-week roadmap with clear weekly deliverables",
@@ -34,8 +30,6 @@ export const plans: Plan[] = [
   {
     name: "A-Level • 6 Month Plan",
     badge: "A-Level • Normal",
-    price: "£500",
-    cadence: "PCM",
     details: "Structured format: Learn from our notes + 1 x 60-minute weekly tutorial",
     bullets: [
       "Structured long-run roadmap with clear weekly deliverables",
@@ -55,8 +49,6 @@ export const plans: Plan[] = [
   {
     name: "A-Level • Traditional Tutoring",
     badge: "A-Level • 1:1",
-    price: "£100",
-    cadence: "per hour",
     details: "1:1 tutoring only",
     bullets: [
       "Bespoke 1:1 strategy aligned to your target grade and timeline",
@@ -75,8 +67,6 @@ export const plans: Plan[] = [
   {
     name: "GCSE • 3 Month Plan",
     badge: "GCSE • Fast",
-    price: "£550",
-    cadence: "PCM",
     details: "Structured format: Learn from our notes + 2 x 60-minute weekly tutorials",
     bullets: [
       "Intensive 12-week roadmap with clear weekly deliverables",
@@ -95,8 +85,6 @@ export const plans: Plan[] = [
   {
     name: "GCSE • 6 Month Plan",
     badge: "GCSE • Normal",
-    price: "£400",
-    cadence: "PCM",
     details: "Structured format: Learn from our notes + 1 x 60-minute weekly tutorial",
     bullets: [
       "Structured long-run roadmap with clear weekly deliverables",
@@ -116,8 +104,6 @@ export const plans: Plan[] = [
   {
     name: "GCSE • Traditional Tutoring",
     badge: "GCSE • 1:1",
-    price: "£75",
-    cadence: "per hour",
     details: "1:1 tutoring only",
     bullets: [
       "Bespoke 1:1 strategy aligned to your target grade and timeline",

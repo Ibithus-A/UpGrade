@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 
 const navItems = [
-  { label: "Pricing", href: "/pricing" },
+  { label: "Services", href: "/pricing" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
@@ -24,9 +24,7 @@ export function Navbar() {
           </nav>
 
           <div className="md:hidden">
-            <Link href="/pricing" className="btn btn-primary btn-sm">
-              Pricing
-            </Link>
+            <Link href="/pricing" className="btn btn-primary btn-sm">Services</Link>
           </div>
         </div>
       </div>

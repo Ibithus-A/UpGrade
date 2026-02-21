@@ -22,7 +22,7 @@ export function Footer() {
               <p className="font-semibold">Explore</p>
               <div className="flex flex-col gap-2 text-black/60">
                 <Link href="/pricing" className="ui-link w-fit px-0">
-                  Pricing
+                  Services
                 </Link>
                 <Link href="/#faq" className="ui-link w-fit px-0">
                   FAQ
