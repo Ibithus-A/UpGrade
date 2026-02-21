@@ -36,7 +36,7 @@ function PlanCard({
       </div>
 
       <p className="mt-2 text-sm text-black/60">
-        {p.badge.includes("1:1") ? "1:1 Tutoring" : "Course/Tutorial Format"}
+        {p.badge.includes("1:1") ? "1:1 Tutoring" : "Structured Tutorial Format"}
       </p>
 
       {/* Bullets */}

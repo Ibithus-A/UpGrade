@@ -2,12 +2,10 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 
 const navItems = [
-  { label: "Courses", href: "/login?next=/courses/a-level-maths/chapter-01%3Fsection%3D1" },
   { label: "Pricing", href: "/pricing" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
-  { label: "Portal", href: "/login" },
 ];
 
 export function Navbar() {
@@ -23,14 +21,11 @@ export function Navbar() {
                 {i.label}
               </Link>
             ))}
-            <Link href="/login" className="btn btn-primary btn-sm" scroll={false}>
-              Sign in
-            </Link>
           </nav>
 
           <div className="md:hidden">
-            <Link href="/login" className="btn btn-primary btn-sm" scroll={false}>
-              Sign in
+            <Link href="/pricing" className="btn btn-primary btn-sm">
+              Pricing
             </Link>
           </div>
         </div>

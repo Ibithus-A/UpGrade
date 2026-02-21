@@ -16,7 +16,7 @@ export const plans: Plan[] = [
     badge: "A-Level • Fast",
     price: "£750",
     cadence: "PCM",
-    details: "Course format: Learn from our notes + 2 x 60-minute weekly tutorials",
+    details: "Structured format: Learn from our notes + 2 x 60-minute weekly tutorials",
     bullets: [
       "Intensive 12-week roadmap with clear weekly deliverables",
       "2 x 60-minute weekly tutorials to explain hard topics and practise questions",
@@ -36,7 +36,7 @@ export const plans: Plan[] = [
     badge: "A-Level • Normal",
     price: "£500",
     cadence: "PCM",
-    details: "Course format: Learn from our notes + 1 x 60-minute weekly tutorial",
+    details: "Structured format: Learn from our notes + 1 x 60-minute weekly tutorial",
     bullets: [
       "Structured long-run roadmap with clear weekly deliverables",
       "1 x 60-minute weekly tutorial to explain hard topics and practise questions",
@@ -77,7 +77,7 @@ export const plans: Plan[] = [
     badge: "GCSE • Fast",
     price: "£550",
     cadence: "PCM",
-    details: "Course format: Learn from our notes + 2 x 60-minute weekly tutorials",
+    details: "Structured format: Learn from our notes + 2 x 60-minute weekly tutorials",
     bullets: [
       "Intensive 12-week roadmap with clear weekly deliverables",
       "2 x 60-minute weekly tutorials to explain hard topics and practise questions",
@@ -97,7 +97,7 @@ export const plans: Plan[] = [
     badge: "GCSE • Normal",
     price: "£400",
     cadence: "PCM",
-    details: "Course format: Learn from our notes + 1 x 60-minute weekly tutorial",
+    details: "Structured format: Learn from our notes + 1 x 60-minute weekly tutorial",
     bullets: [
       "Structured long-run roadmap with clear weekly deliverables",
       "1 x 60-minute weekly tutorial to explain hard topics and practise questions",
