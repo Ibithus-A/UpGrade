@@ -6,16 +6,16 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "Read testimonials from GCSE and A-Level learners and parents who studied with UpGrade.",
+    "Read testimonials from GCSE and A-Level learners and parents who studied with Excelora.",
   alternates: {
     canonical: "/testimonials",
   },
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/testimonials`,
-    title: "Testimonials | UpGrade",
+    title: "Testimonials | Excelora",
     description:
-      "Read testimonials from GCSE and A-Level learners and parents who studied with UpGrade.",
+      "Read testimonials from GCSE and A-Level learners and parents who studied with Excelora.",
   },
 };
 
@@ -41,7 +41,7 @@ export default function TestimonialsPage() {
       <div className="container">
         <h1 className="h1 text-4xl md:text-5xl">Testimonials</h1>
         <p className="mt-2 lead max-w-2xl">
-          A snapshot of what learners and parents say about UpGrade.
+          A snapshot of what learners and parents say about Excelora.
         </p>
 
         <div className="mt-8">

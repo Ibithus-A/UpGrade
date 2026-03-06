@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: "%s | UpGrade",
+    template: "%s | Excelora",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,

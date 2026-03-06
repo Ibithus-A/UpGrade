@@ -12,9 +12,9 @@ function getSiteUrl() {
 }
 
 export const siteConfig = {
-  name: "UpGrade",
-  title: "UpGrade | Premium GCSE & A-Level Maths Tuition",
+  name: "Excelora",
+  title: "Excelora | Premium GCSE & A-Level Maths Tuition",
   description:
-    "UpGrade delivers premium GCSE and A-Level Maths lessons with structured support, exam focus, and high standards.",
+    "Excelora delivers premium GCSE and A-Level Maths lessons with structured support, exam focus, and high standards.",
   url: getSiteUrl(),
 };

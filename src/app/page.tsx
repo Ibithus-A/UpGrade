@@ -81,20 +81,19 @@ export default function HomePage() {
               <p className="kicker">Premium Maths Tuition • GCSE & A-Level</p>
 
               <h1 className="mt-4 h1">
-                Upgrade your grades with{" "}
-                <span className="text-black/70">structured</span>, exam-focused
-                lessons.
+                Helping you <span className="text-black/70">Excel</span> your
+                learning with Excelora&apos;s structured, exam-focused lessons.
               </h1>
 
               <p className="mt-4 lead max-w-xl">
-                UpGrade delivers a clean, high-standards approach: clear
+                Excelora delivers a clean, high-standards approach: clear
                 teaching, consistent accountability, and exam questions for
                 every topic. We specialise exclusively in GCSE and A-Level Maths.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   className="btn btn-primary btn-lg w-full sm:w-auto"
                 >
                   Book Your Free Call
@@ -117,7 +116,7 @@ export default function HomePage() {
 
             {/* Method */}
             <div className="card min-w-0 flex-1 overflow-hidden p-6 md:p-8">
-              <p className="text-sm font-semibold">The UpGrade Method</p>
+              <p className="text-sm font-semibold">The Excelora Method</p>
 
               {/* Vertical flowchart only */}
               <div className="mt-5 flex flex-col gap-3">

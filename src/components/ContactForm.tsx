@@ -1,191 +1,37 @@
 "use client";
 
-import { useState } from "react";
-
-type Status = "idle" | "sending" | "sent" | "error";
+import Script from "next/script";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<Status>("idle");
-  const [message, setMessage] = useState<string>("");
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("sending");
-    setMessage("");
-
-    const form = new FormData(e.currentTarget);
-    const payload = {
-      name: String(form.get("name") || ""),
-      email: String(form.get("email") || ""),
-      phone: String(form.get("phone") || ""),
-      level: String(form.get("level") || ""),
-      subject: String(form.get("subject") || ""),
-      notes: String(form.get("notes") || ""),
-      website: String(form.get("website") || ""),
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = (await res.json()) as { ok: boolean; error?: string };
-
-      if (!res.ok || !data.ok) {
-        setStatus("error");
-        setMessage(data.error || "Something went wrong. Please try again.");
-        return;
-      }
-
-      setStatus("sent");
-      setMessage("Thanks — we’ll get back to you shortly.");
-      e.currentTarget.reset();
-    } catch {
-      setStatus("error");
-      setMessage("Network error. Please try again.");
-    }
-  }
-
   return (
     <section id="contact" className="section scroll-mt-24">
-      <div className="container">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start">
-          <div className="min-w-0 flex-1">
-            <h2 className="h2">Contact UpGrade</h2>
-            <p className="mt-2 max-w-lg lead">
-              Tell us your goals and we’ll recommend the best plan.
-            </p>
+      <link
+        href="https://assets.calendly.com/assets/external/widget.css"
+        rel="stylesheet"
+      />
 
-            <div className="mt-6 card p-6">
-              <p className="text-sm font-semibold">What You&apos;ll Get</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-black/70 sm:whitespace-nowrap">
-                <li>Tailored Maths frameworks built around your target grade</li>
-                <li>Specialist weekly tutorials on your highest-impact weak areas</li>
-                <li>Expert-designed GCSE and A-Level Maths learning pathways</li>
-                <li>Precision exam-method systems for marks, timing, and accuracy</li>
-                <li>Book Your Free Call to align your strategy and next steps</li>
-              </ul>
-            </div>
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="afterInteractive"
+      />
+
+      <div className="container">
+        <div className="mx-auto w-full max-w-5xl">
+          <div className="mb-8 text-center">
+            <h2 className="h2">Book Your Call with Excelora</h2>
+            <p className="mt-3 mx-auto max-w-2xl lead">
+              Pick a time that suits you and we&apos;ll map out the best next
+              steps for your Maths goals.
+            </p>
           </div>
 
-          <form onSubmit={onSubmit} className="card min-w-0 flex-1 p-6">
-            <div className="flex flex-col gap-4">
-              <input
-                type="text"
-                name="website"
-                tabIndex={-1}
-                autoComplete="off"
-                className="hidden"
-                aria-hidden="true"
-              />
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="flex min-w-0 flex-1 flex-col gap-1">
-                  <label className="label" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    autoComplete="name"
-                    required
-                    className="field"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div className="flex min-w-0 flex-1 flex-col gap-1">
-                  <label className="label" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="field"
-                    placeholder="you@email.com"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="flex min-w-0 flex-1 flex-col gap-1">
-                  <label className="label" htmlFor="phone">
-                    Phone (optional)
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    autoComplete="tel"
-                    inputMode="tel"
-                    className="field"
-                    placeholder="+44 ..."
-                  />
-                </div>
-
-                <div className="flex min-w-0 flex-1 flex-col gap-1">
-                  <label className="label" htmlFor="level">
-                    Level
-                  </label>
-                  <select id="level" name="level" required className="select" defaultValue="">
-                    <option value="" disabled>
-                      Select
-                    </option>
-                    <option>GCSE</option>
-                    <option>A-Level</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="label" htmlFor="subject">
-                  Subject / Focus
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  autoComplete="off"
-                  required
-                  className="field"
-                  placeholder="e.g. A-Level Maths, GCSE Maths..."
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="label" htmlFor="notes">
-                  Goals / Notes
-                </label>
-                <textarea
-                  id="notes"
-                  name="notes"
-                  rows={4}
-                  className="textarea"
-                  placeholder="Target grade, exam board, weak topics, timeline..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="btn btn-primary btn-md w-full disabled:opacity-60"
-              >
-                {status === "sending" ? "Sending..." : "Send enquiry"}
-              </button>
-
-              {message ? (
-                <p
-                  role={status === "error" ? "alert" : "status"}
-                  aria-live="polite"
-                  className={["text-sm", status === "error" ? "text-red-600" : "text-black/70"].join(" ")}
-                >
-                  {message}
-                </p>
-              ) : null}
-            </div>
-          </form>
+          <div className="overflow-hidden rounded-3xl border hairline bg-white h-[clamp(760px,85vh,980px)]">
+            <div
+              className="calendly-inline-widget w-full"
+              data-url="https://calendly.com/ibrahimahmed0/30min?hide_event_type_details=1&primary_color=1a1a1a"
+              style={{ width: "100%", minWidth: "0", height: "100%" }}
+            />
+          </div>
         </div>
       </div>
     </section>

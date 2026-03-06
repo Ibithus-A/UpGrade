@@ -132,7 +132,7 @@ export const testimonials: Testimonial[] = [
     name: "Ayesha Khan",
     role: "A-Level Maths Student",
     quote:
-      "I was stuck at a C because I revised randomly. UpGrade gave me a clear subsection plan and made sure I finished the exam questions for each part. After 6 weeks, my accuracy improved and I went from a C to a solid B in mocks — and finally felt confident on timing.",
+      "I was stuck at a C because I revised randomly. Excelora gave me a clear subsection plan and made sure I finished the exam questions for each part. After 6 weeks, my accuracy improved and I went from a C to a solid B in mocks — and finally felt confident on timing.",
   },
   {
     name: "Thomas Reed",
@@ -150,13 +150,13 @@ export const testimonials: Testimonial[] = [
     name: "Jamal Hassan",
     role: "Parent of GCSE Maths Student",
     quote:
-      "UpGrade were extremely organised. We got weekly targets, clear feedback, and measurable progress. My son became more disciplined and his confidence improved because he could see exactly what he’d completed and what was next.",
+      "Excelora were extremely organised. We got weekly targets, clear feedback, and measurable progress. My son became more disciplined and his confidence improved because he could see exactly what he’d completed and what was next.",
   },
   {
     name: "Emily Parker",
     role: "A-Level Maths Student",
     quote:
-      "I used to understand topics in class but fall apart on exam questions. UpGrade drilled exam technique — method marks, timing, and how to set work out properly. My mock grade went from C to A and the improvement felt repeatable, not lucky.",
+      "I used to understand topics in class but fall apart on exam questions. Excelora drilled exam technique — method marks, timing, and how to set work out properly. My mock grade went from C to A and the improvement felt repeatable, not lucky.",
   },
 
   {
@@ -187,13 +187,13 @@ export const testimonials: Testimonial[] = [
     name: "Daniel Cooper",
     role: "A-Level Maths Student",
     quote:
-      "UpGrade fixed my revision because it wasn’t vague anymore — it was measurable. I had to complete subsections and then do the exam questions immediately. That cycle made everything stick, and my mock results improved across every topic area.",
+      "Excelora fixed my revision because it wasn’t vague anymore — it was measurable. I had to complete subsections and then do the exam questions immediately. That cycle made everything stick, and my mock results improved across every topic area.",
   },
   {
     name: "Mia Collins",
     role: "GCSE Maths Student",
     quote:
-      "Before UpGrade, I understood topics but still lost marks in exams. They taught me how maths mark schemes work, and we practised writing full method steps clearly. My teacher noticed my solutions became much more precise.",
+      "Before Excelora, I understood topics but still lost marks in exams. They taught me how maths mark schemes work, and we practised writing full method steps clearly. My teacher noticed my solutions became much more precise.",
   },
   {
     name: "Hassan Iqbal",
@@ -211,7 +211,7 @@ export const testimonials: Testimonial[] = [
     name: "Ethan Brooks",
     role: "A-Level Maths Student",
     quote:
-      "I needed an A but my weakest areas kept dragging me down. UpGrade identified exactly which subsections were costing marks and gave me a clear order to fix them. The exam-question requirement forced real practice and my consistency improved.",
+      "I needed an A but my weakest areas kept dragging me down. Excelora identified exactly which subsections were costing marks and gave me a clear order to fix them. The exam-question requirement forced real practice and my consistency improved.",
   },
   {
     name: "Leah Williams",
@@ -229,7 +229,7 @@ export const testimonials: Testimonial[] = [
     name: "Sofia Martinez",
     role: "GCSE Maths Student",
     quote:
-      "UpGrade helped me stop freezing in exams. We practised timed questions and reviewed mistakes properly, so I didn’t repeat them. I became quicker, more confident, and my grade improved from a 6 to a 7 in the next mock.",
+      "Excelora helped me stop freezing in exams. We practised timed questions and reviewed mistakes properly, so I didn’t repeat them. I became quicker, more confident, and my grade improved from a 6 to a 7 in the next mock.",
   },
   {
     name: "Ben Turner",
@@ -255,7 +255,7 @@ export type FAQItem = { q: string; a: string };
 
 export const faqs: FAQItem[] = [
   {
-    q: "Who Is UpGrade Designed For?",
+    q: "Who Is Excelora Designed For?",
     a: "Students who are serious about improving GCSE Maths or A-Level Maths results through structured teaching, consistent accountability, and exam-focused execution.",
   },
   {

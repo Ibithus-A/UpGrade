@@ -121,7 +121,8 @@ body {
 
   .ui-link {
     @apply inline-flex items-center rounded-md px-1.5 py-1 text-[13px] text-black/70;
-    @apply hover:bg-black/[0.04] hover:text-black;
+    @apply hover:bg-black/[0.04] hover:text-[#1d1d1f];
+    @apply transition-colors duration-200 ease-out;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f5f7];
   }
 

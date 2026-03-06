@@ -60,7 +60,7 @@ export async function POST(req: Request) {
 
     // Replace with Resend/Postmark/etc in production.
     if (process.env.NODE_ENV !== "production") {
-      console.log("New UpGrade enquiry:", {
+      console.log("New Excelora enquiry:", {
         name,
         email,
         level,
