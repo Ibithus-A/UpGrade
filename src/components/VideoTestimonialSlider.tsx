@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export type VideoTestimonial = {
   name: string;
@@ -17,28 +17,11 @@ export function VideoTestimonialSlider({
   items: VideoTestimonial[];
 }) {
   const [index, setIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
   const [playedSlides, setPlayedSlides] = useState<Record<number, boolean>>({});
   const [fadingSlides, setFadingSlides] = useState<Record<number, boolean>>({});
-  const timer = useRef<number | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const len = items.length;
   const hasMultiple = len > 1;
-
-  useEffect(() => {
-    if (!hasMultiple) return;
-
-    if (timer.current) window.clearInterval(timer.current);
-    if (!isHovering) {
-      timer.current = window.setInterval(() => {
-        setIndex((current) => (current + 1) % len);
-      }, 6000);
-    }
-
-    return () => {
-      if (timer.current) window.clearInterval(timer.current);
-    };
-  }, [hasMultiple, isHovering, len]);
 
   if (!len) return null;
 
@@ -64,8 +47,6 @@ export function VideoTestimonialSlider({
   return (
     <div
       className="card overflow-hidden"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
       tabIndex={0}
       role="region"
       aria-roledescription="carousel"
