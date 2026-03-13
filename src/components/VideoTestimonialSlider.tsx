@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type VideoTestimonial = {
   name: string;
@@ -19,9 +19,34 @@ export function VideoTestimonialSlider({
   const [index, setIndex] = useState(0);
   const [playedSlides, setPlayedSlides] = useState<Record<number, boolean>>({});
   const [fadingSlides, setFadingSlides] = useState<Record<number, boolean>>({});
+  const rootRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const len = items.length;
   const hasMultiple = len > 1;
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, videoIndex) => {
+      if (!video || videoIndex === index) return;
+      video.pause();
+    });
+  }, [index]);
+
+  useEffect(() => {
+    const node = rootRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) return;
+        videoRefs.current.forEach((video) => video?.pause());
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
 
   if (!len) return null;
 
@@ -46,6 +71,7 @@ export function VideoTestimonialSlider({
 
   return (
     <div
+      ref={rootRef}
       className="card overflow-hidden"
       tabIndex={0}
       role="region"
