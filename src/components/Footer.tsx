@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -18,20 +17,7 @@ export function Footer() {
             className="md:col-span-6"
             aria-label="Footer"
           >
-            <div className="flex flex-wrap gap-2 md:justify-end">
-              <Link href="/pricing" className="ui-link w-fit">
-                Services
-              </Link>
-              <Link href="/testimonials" className="ui-link w-fit">
-                Testimonials
-              </Link>
-              <Link href="/#faq" className="ui-link w-fit">
-                FAQ
-              </Link>
-              <Link href="/#contact" className="ui-link w-fit">
-                Book your call
-              </Link>
-            </div>
+            <div className="flex flex-wrap gap-2 md:justify-end" />
           </nav>
         </div>
 

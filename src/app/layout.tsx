@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { RouteScrollManager } from "@/components/RouteScrollManager";
+import { FixedCallButton } from "@/components/FixedCallButton";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function RootLayout({
         <RouteScrollManager />
         <Navbar />
         {children}
+        <FixedCallButton />
         <Footer />
       </body>
     </html>
