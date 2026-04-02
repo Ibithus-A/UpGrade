@@ -28,14 +28,6 @@ const videoTestimonials = [
       "Saptansu reflects on how a clear A-Level roadmap, precise tutor guidance, and stronger exam confidence helped him turn consistent effort into real results.",
   },
   {
-    name: "Desmond",
-    role: "A-Level Maths Student",
-    label: "Student video",
-    videoSrc: "/Video%20Testimony/Desmond%20Video%20Testimony.MOV",
-    summary:
-      "Desmond talks through the structure behind his progress: focused teaching, a personalised plan for improvement, and the confidence to perform under exam pressure.",
-  },
-  {
     name: "Adrianna",
     role: "GCSE Maths Student",
     label: "Student video",
